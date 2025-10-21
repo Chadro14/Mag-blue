@@ -1,0 +1,601 @@
+/* Variables de couleurs */
+:root {
+    --primary-blue: #007bff;     /* Bleu principal pour les accents et boutons */
+    --dark-blue: #0A1128;        /* Bleu très foncé pour le fond principal et header */
+    --medium-blue: #001F54;      /* Bleu légèrement moins foncé pour les sections */
+    --light-gray: #e0e0e0;       /* Gris clair pour le texte secondaire */
+    --white: #ffffff;            /* Blanc pour le texte principal et fonds */
+    --card-bg: #1C2B4E;          /* Fond des cartes (un bleu plus clair que le fond) */
+    --hover-blue: #0056b3;       /* Bleu pour les effets hover */
+    --button-green: #28a745;     /* Vert pour les boutons secondaires */
+    --hover-green: #218838;
+    --separator-color: #6c757d;  /* Couleur pour le séparateur OU */
+    --error-red: #dc3545;        /* Rouge pour les messages d'erreur */
+}
+
+/* --- Reset CSS & Styles de base --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--light-gray); /* Couleur de texte par défaut */
+    background-color: var(--dark-blue); /* Fond principal */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--white);
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 10px;
+    color: var(--light-gray);
+}
+
+a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--hover-blue);
+}
+
+/* --- Pages d'Authentification (index.html) --- */
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--dark-blue) 0%, var(--medium-blue) 100%);
+}
+
+.auth-container {
+    background-color: var(--card-bg); /* Utiliser le fond de carte pour le formulaire */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 90%;
+    max-width: 450px;
+}
+
+.auth-logo {
+    font-size: 2.5em;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+}
+
+.auth-container h2 {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    color: var(--white);
+}
+
+.auth-buttons {
+    margin-bottom: 20px;
+}
+
+.btn-auth {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px 20px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.google-auth {
+    background-color: var(--white);
+    color: var(--text-color);
+}
+.google-auth:hover {
+    background-color: #f0f0f0;
+}
+.google-auth i {
+    margin-right: 10px;
+    font-size: 1.2em;
+    color: #DB4437; /* Couleur de l'icône Google */
+}
+
+.email-auth {
+    background-color: var(--primary-blue);
+    color: var(--white);
+}
+.email-auth:hover {
+    background-color: var(--hover-blue);
+}
+.email-auth i {
+    margin-right: 10px;
+}
+
+.separator {
+    color: var(--separator-color);
+    margin: 20px 0;
+    position: relative;
+}
+.separator::before, .separator::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background-color: var(--separator-color);
+}
+.separator::before { left: 0; }
+.separator::after { right: 0; }
+
+.email-auth-section {
+    margin-top: 30px;
+}
+
+.auth-form {
+    background-color: var(--dark-blue); /* Fond du formulaire e-mail */
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.auth-form h3 {
+    font-size: 1.5em;
+    margin-bottom: 25px;
+    color: var(--primary-blue);
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #495057;
+    border-radius: 5px;
+    background-color: #343a40;
+    color: var(--white);
+    font-size: 1em;
+    outline: none;
+}
+
+.auth-form input::placeholder {
+    color: #adb5bd;
+}
+
+.auth-form .btn-primary {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px 20px;
+    font-size: 1.1em;
+}
+
+.auth-form p {
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+.auth-form p a {
+    color: var(--primary-blue);
+    font-weight: 600;
+}
+.auth-form p a:hover {
+    color: var(--hover-blue);
+}
+
+.auth-message {
+    color: var(--error-red);
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+
+/* --- Header (dashboard.html) --- */
+header {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--primary-blue);
+}
+
+/* Navigation Desktop */
+.main-nav .nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav .nav-links li {
+    margin-left: 25px;
+}
+
+.main-nav .nav-links a {
+    color: var(--white);
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.main-nav .nav-links a:hover {
+    color: var(--primary-blue);
+}
+
+/* Hamburger pour mobile */
+.hamburger {
+    display: none; /* Caché par défaut sur desktop */
+    font-size: 1.8em;
+    cursor: pointer;
+    color: var(--white);
+    padding: 5px;
+}
+
+/* Menu Mobile / Hamburger */
+.mobile-menu {
+    display: none; /* Caché par défaut */
+    flex-direction: column;
+    background-color: var(--dark-blue);
+    position: absolute;
+    top: 60px; /* Ajuster si la hauteur du header change */
+    left: 0;
+    width: 100%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    padding: 10px 0;
+    z-index: 999;
+}
+
+.mobile-menu.active {
+    display: flex;
+}
+
+.mobile-menu-item {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.mobile-menu-item:last-of-type {
+    border-bottom: none;
+}
+
+.mobile-menu-item .menu-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--white);
+    padding: 12px 20px;
+    font-weight: 600;
+    font-size: 1.1em;
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.mobile-menu-item .menu-toggle:hover {
+    background-color: var(--primary-blue);
+}
+
+.mobile-menu-item .menu-toggle .fas {
+    transition: transform 0.3s ease;
+}
+.mobile-menu-item .menu-toggle.active .fas {
+    transform: rotate(180deg);
+}
+
+.submenu {
+    display: none; /* Caché par défaut */
+    flex-direction: column;
+    background-color: var(--medium-blue);
+    padding: 0 20px 10px;
+}
+.submenu.active {
+    display: flex;
+}
+
+.submenu a {
+    color: var(--light-gray);
+    padding: 8px 15px;
+    font-size: 1em;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    transition: background-color 0.3s ease;
+}
+.submenu a:hover {
+    background-color: var(--primary-blue);
+    color: var(--white);
+}
+
+.submenu .coming-soon {
+    color: var(--light-gray);
+    padding: 8px 15px;
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+.logout-btn {
+    display: block;
+    color: var(--error-red);
+    padding: 15px 20px;
+    text-align: center;
+    font-weight: 600;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+}
+.logout-btn:hover {
+    background-color: rgba(220, 53, 69, 0.2);
+    color: var(--error-red);
+}
+.logout-btn i {
+    margin-right: 8px;
+}
+
+
+/* --- Hero Dashboard Section (dashboard.html) --- */
+.hero-dashboard-section {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%); /* Dégradé de bleu */
+    text-align: center;
+    padding: 80px 20px;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: var(--white);
+    border-bottom: 5px solid var(--primary-blue); /* Petite touche */
+}
+
+.hero-dashboard-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-dashboard-section p {
+    font-size: 1.1em;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--light-gray);
+}
+
+
+/* --- Category Sections --- */
+.category-section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.secondary-bg {
+    background-color: var(--medium-blue); /* Fond secondaire pour alterner */
+}
+
+.category-section h3 {
+    font-size: 2.2em;
+    margin-bottom: 40px;
+    position: relative;
+    color: var(--primary-blue); /* Titre de section en bleu */
+}
+
+.category-section h3::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--white);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.description-text {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    color: var(--light-gray);
+}
+
+.products-grid, .social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px; /* Intervalle entre les cartes */
+    justify-content: center;
+}
+
+.product-card, .social-card {
+    background-color: var(--card-bg); /* Fond des cartes */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: var(--light-gray);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-card:hover, .social-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.product-card img {
+    max-width: 90px;
+    height: auto;
+    margin: 0 auto 20px;
+    border-radius: 8px;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3)); /* Petite ombre pour les logos */
+}
+
+.product-card h4, .social-card h4 {
+    font-size: 1.5em;
+    color: var(--white);
+    margin-bottom: 10px;
+}
+
+.product-card p, .social-card p {
+    font-size: 0.9em;
+    color: var(--light-gray);
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+
+.product-card .price {
+    display: block;
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--primary-blue); /* Prix en bleu */
+    margin-bottom: 20px;
+}
+
+/* Boutons */
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
+    font-size: 1em;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--primary-blue);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: var(--hover-blue);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: var(--button-green); /* Vert pour les CTA sur les cartes */
+    color: var(--white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--hover-green);
+    transform: translateY(-2px);
+}
+.btn-secondary.disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+/* Coming Soon Card */
+.coming-soon-card {
+    border: 2px dashed var(--primary-blue);
+    background-color: var(--medium-blue);
+    color: var(--white);
+}
+.coming-soon-card i {
+    font-size: 3em;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+}
+.coming-soon-card .price {
+    color: var(--light-gray);
+    font-size: 1.1em;
+    font-weight: 400;
+}
+
+
+/* Social Cards */
+.social-card {
+    text-align: center;
+    color: var(--white);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+.social-card i {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+.social-card.whatsapp { background-color: #25d366; }
+.social-card.instagram { background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); }
+.social-card.tiktok { background-color: #010101; } /* Noir car l'icône TikTok est bicolore */
+.social-card.facebook { background-color: #3b5998; }
+
+/* --- Footer --- */
+footer {
+    background-color: var(--dark-blue);
+    color: var(--light-gray);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9em;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+footer p {
+    margin: 5px 0;
+    color: var(--light-gray);
+}
+
+footer a {
+    color: var(--primary-blue);
+}
+
+footer a:hover {
+    color: var(--hover-blue);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .main-nav .nav-links.desktop-only {
+        display: none; /* Cache la navigation principale sur mobile */
+    }
+
+    .hamburger {
+        display: block; /* Affiche l'icône hamburger */
+    }
+
+    .hero-dashboard-section h2 {
+        font-size: 2em;
+    }
+
+    .hero-dashboard-section p {
+        font-size: 1em;
+    }
+
+    .products-grid, .social-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+    }
+
+    .auth-container {
+        padding: 25px;
+    }
+    .auth-container h2 {
+        font-size: 1.5em;
+    }
+    .auth-form h3 {
+        font-size: 1.2em;
+    }
+      }
