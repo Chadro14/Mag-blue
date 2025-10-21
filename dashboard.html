@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mag-blue - Votre Tableau de Bord</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Mag-blue</h1>
+            <nav class="main-nav">
+                <ul class="nav-links desktop-only">
+                    <li><a href="#streaming">Streaming</a></li>
+                    <li><a href="#montage">Montage Premium</a></li>
+                    <li><a href="#comptes">Comptes Certifiés</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-item">
+                <a href="#" class="menu-toggle" data-target="streaming-submenu">Canaux de Streaming <i class="fas fa-chevron-down"></i></a>
+                <div class="submenu" id="streaming-submenu">
+                    <a href="#">Netflix</a>
+                    <a href="#">Paramount+</a>
+                    <a href="#">Disney+</a>
+                    <a href="#">Prime Video</a>
+                    <a href="#">Canal+</a>
+                </div>
+            </div>
+            <div class="mobile-menu-item">
+                <a href="#" class="menu-toggle" data-target="montage-submenu">Outils de Montage Premium <i class="fas fa-chevron-down"></i></a>
+                <div class="submenu" id="montage-submenu">
+                    <a href="#">CapCut</a>
+                    <a href="#">Canva</a>
+                    <span class="coming-soon">Autres apps en cours...</span>
+                </div>
+            </div>
+            <div class="mobile-menu-item">
+                <a href="#" class="menu-toggle" data-target="comptes-submenu">Comptes Certifiés <i class="fas fa-chevron-down"></i></a>
+                <div class="submenu" id="comptes-submenu">
+                    <a href="#" target="_blank">WhatsApp</a>
+                    <a href="#" target="_blank">Instagram</a>
+                    <a href="#" target="_blank">TikTok</a>
+                    <a href="#" target="_blank">Facebook</a>
+                </div>
+            </div>
+            <a href="#" id="logoutBtn" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero-dashboard" class="hero-dashboard-section">
+            <div class="container">
+                <h2 id="welcomeMessage">Salut !</h2>
+                <p>Nous sommes Mag-blue, votre fidèle partenaire pour des abonnements de streaming, des outils de montage et bien plus encore.</p>
+                <p>Découvrez nos offres exceptionnelles et boostez vos divertissements et votre créativité à des prix réduits.</p>
+            </div>
+        </section>
+
+        <section id="streaming" class="category-section">
+            <div class="container">
+                <h3>Canaux de Streaming</h3>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <img src="assets/images/netflix_logo.png" alt="Netflix Logo">
+                        <h4>Netflix</h4>
+                        <p>Des films, des séries et des documentaires à l'infini.</p>
+                        <span class="price">À partir de 9.99€/mois</span>
+                        <a href="#" class="btn-secondary">Voir l'offre</a>
+                    </div>
+                    <div class="product-card">
+                        <img src="assets/images/paramountplus_logo.png" alt="Paramount+ Logo">
+                        <h4>Paramount+</h4>
+                        <p>Films, séries et sports en direct.</p>
+                        <span class="price">À partir de 6.99€/mois</span>
+                        <a href="#" class="btn-secondary">Voir l'offre</a>
+                    </div>
+                    <div class="product-card">
+                        <img src="assets/images/disneyplus_logo.png" alt="Disney+ Logo">
+                        <h4>Disney+</h4>
+                        <p>Univers Disney, Pixar, Marvel, Star Wars et National Geographic.</p>
+                        <span class="price">À partir de 7.99€/mois</span>
+                        <a href="#" class="btn-secondary">Voir l'offre</a>
+                    </div>
+                     <div class="product-card">
+                        <img src="assets/images/primevideo_logo.png" alt="Prime Video Logo">
+                        <h4>Prime Video</h4>
+                        <p>Films, séries et avantages Prime, inclus avec Amazon Prime.</p>
+                        <span class="price">À partir de 5.99€/mois</span>
+                        <a href="#" class="btn-secondary">Voir l'offre</a>
+                    </div>
+                    <div class="product-card">
+                        <img src="assets/images/canalplus_logo.png" alt="Canal+ Logo">
+                        <h4>Canal+</h4>
+                        <p>Le meilleur du cinéma, des séries et du sport.</p>
+                        <span class="price">À partir de 19.99€/mois</span>
+                        <a href="#" class="btn-secondary">Voir l'offre</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="montage" class="category-section secondary-bg">
+            <div class="container">
+                <h3>Outils de Montage Premium</h3>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <img src="assets/images/capcut_logo.png" alt="CapCut Logo">
+                        <h4>CapCut Pro</h4>
+                        <p>Édition vidéo puissante et facile pour tous vos projets.</p>
+                        <span class="price">À partir de 4.99€/mois</span>
+                        <a href="#" class="btn-secondary">Voir l'offre</a>
+                    </div>
+                    <div class="product-card">
+                        <img src="assets/images/canva_logo.png" alt="Canva Logo">
+                        <h4>Canva Pro</h4>
+                        <p>Design graphique simplifié pour des créations professionnelles.</p>
+                        <span class="price">À partir de 7.99€/mois</span>
+                        <a href="#" class="btn-secondary">Voir l'offre</a>
+                    </div>
+                     <div class="product-card coming-soon-card">
+                        <i class="fas fa-tools"></i>
+                        <h4>Autres Applications</h4>
+                        <p>De nouveaux outils arrivent bientôt pour enrichir votre expérience !</p>
+                        <span class="price">En cours de développement</span>
+                        <a href="#" class="btn-secondary disabled">Bientôt disponible</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="comptes" class="category-section">
+            <div class="container">
+                <h3>Nos Comptes Certifiés</h3>
+                <p class="description-text">Retrouvez-nous et suivez nos actualités sur nos plateformes certifiées :</p>
+                <div class="social-grid">
+                    <a href="https://wa.me/" target="_blank" class="social-card whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                        <h4>WhatsApp</h4>
+                        <p>Discutez avec notre support.</p>
+                    </a>
+                    <a href="https://instagram.com/" target="_blank" class="social-card instagram">
+                        <i class="fab fa-instagram"></i>
+                        <h4>Instagram</h4>
+                        <p>Suivez nos visuels et nouveautés.</p>
+                    </a>
+                    <a href="https://tiktok.com/" target="_blank" class="social-card tiktok">
+                        <i class="fab fa-tiktok"></i>
+                        <h4>TikTok</h4>
+                        <p>Découvrez nos contenus courts et dynamiques.</p>
+                    </a>
+                    <a href="https://facebook.com/" target="_blank" class="social-card facebook">
+                        <i class="fab fa-facebook"></i>
+                        <h4>Facebook</h4>
+                        <p>Rejoignez notre communauté.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Mag-blue. Tous droits réservés.</p>
+            <p><a href="#">Contactez-nous</a> | <a href="#">Mentions Légales</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
