@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mag-blue - Connexion / Inscription</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <h1 class="logo auth-logo">Mag-blue</h1>
+        <h2>Connectez-vous ou inscrivez-vous</h2>
+
+        <div class="auth-buttons">
+            <button class="btn-auth google-auth" id="googleAuthBtn">
+                <i class="fab fa-google"></i> Continuer avec Google
+            </button>
+            <div class="separator">OU</div>
+            <button class="btn-auth email-auth" id="showEmailAuth">
+                <i class="fas fa-envelope"></i> Continuer avec E-mail
+            </button>
+        </div>
+
+        <div id="emailAuthSection" class="email-auth-section" style="display: none;">
+            <form id="loginForm" class="auth-form">
+                <h3>Connexion</h3>
+                <input type="email" id="loginEmail" placeholder="Votre E-mail" required>
+                <input type="password" id="loginPassword" placeholder="Mot de passe" required>
+                <button type="submit" class="btn-primary">Se connecter</button>
+                <p>Pas encore de compte ? <a href="#" id="toggleRegister">S'inscrire</a></p>
+            </form>
+
+            <form id="registerForm" class="auth-form" style="display: none;">
+                <h3>Inscription</h3>
+                <input type="email" id="registerEmail" placeholder="Votre E-mail" required>
+                <input type="password" id="registerPassword" placeholder="Mot de passe (min. 6 caractères)" required>
+                <button type="submit" class="btn-primary">S'inscrire</button>
+                <p>Déjà un compte ? <a href="#" id="toggleLogin">Se connecter</a></p>
+            </form>
+            <p id="authMessage" class="auth-message"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
