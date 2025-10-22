@@ -13,7 +13,8 @@
         <div class="auth-logo-container">
             <img src="chemin/vers/votre/logo.png" alt="Mag-blue Logo" class="app-logo">
         </div>
-        <h1 class="logo auth-title">Mag-blue</h1> <h2>Connectez-vous ou inscrivez-vous</h2>
+        <h1 class="logo auth-title">Mag-blue</h1>
+        <h2>Connectez-vous ou inscrivez-vous</h2>
 
         <div class="auth-buttons">
             <button class="btn-auth google-auth" id="googleAuthBtn">
@@ -45,6 +46,24 @@
         </div>
     </div>
 
-    <script type="module" src="script.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
+    
+    <script>
+        // Votre configuration Firebase (celle de Mag-blue)
+        const firebaseConfig = {
+            apiKey: "AIzaSyDZWzG8ANeV1SS9Iceshw7HoBsOMQkqWCY",
+            authDomain: "mag-blue.firebaseapp.com",
+            projectId: "mag-blue",
+            storageBucket: "mag-blue.firebasestorage.app",
+            messagingSenderId: "88150920511",
+            appId: "1:88150920511:web:6c5a2cac11fa02f12f978a",
+            measurementId: "G-PHPECWR34V" 
+        };
+
+        // Initialiser Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="script.js"></script>
 </body>
 </html>
