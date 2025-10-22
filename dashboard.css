@@ -1,0 +1,395 @@
+/* Variables CSS pour faciliter la gestion des couleurs et espacements */
+:root {
+    --primary-color: #007bff; /* Bleu vibrant */
+    --secondary-color: #6c757d; /* Gris secondaire */
+    --background-dark: #121212; /* Fond sombre */
+    --text-light: #eeeeee; /* Texte clair */
+    --card-background: #1e1e1e; /* Fond des cartes/sections */
+    --accent-color: #00adb5; /* Couleur d'accentuation */
+    --button-green: #28a745; /* Vert pour les succès/actions positives */
+    --error-red: #dc3545; /* Rouge pour les erreurs */
+    --light-gray: #cccccc; /* Gris clair */
+    --dark-gray: #333333; /* Gris foncé pour certains éléments */
+
+    --font-poppins: 'Poppins', sans-serif;
+    --font-roboto: 'Roboto', sans-serif;
+}
+
+/* Styles globaux et de base */
+body {
+    margin: 0;
+    font-family: var(--font-roboto);
+    color: var(--text-light);
+    background-color: var(--background-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; /* Le body prend toute la hauteur et empile les éléments */
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-poppins);
+    color: var(--text-light);
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+/* ==========================================================================
+   HEADER et NAVIGATION (pour Dashboard)
+   ========================================================================== */
+.main-header {
+    background-color: var(--card-background);
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.app-logo-header {
+    max-width: 40px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-family: var(--font-poppins);
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* Desktop Nav */
+.desktop-nav {
+    display: none; /* Masqué par défaut, affiché sur grand écran */
+}
+
+.desktop-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.desktop-nav ul li {
+    margin-left: 30px;
+}
+
+.desktop-nav ul li a {
+    color: var(--text-light);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.desktop-nav ul li a:hover {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+/* Mobile Menu (Hamburger) */
+.hamburger {
+    display: block; /* Visible par défaut sur mobile */
+    font-size: 1.8em;
+    cursor: pointer;
+    color: var(--text-light);
+    z-index: 1001;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Cache le menu hors de l'écran */
+    width: 250px;
+    height: 100%;
+    background-color: var(--card-background);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.4);
+    transition: right 0.3s ease-in-out;
+    padding-top: 70px; /* Espace pour le header */
+    z-index: 999;
+    overflow-y: auto;
+}
+
+.mobile-menu.active {
+    right: 0; /* Affiche le menu */
+}
+
+.user-info {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #444;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.app-logo-mobile {
+    max-width: 60px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.user-info p {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-menu-item {
+    border-bottom: 1px solid #444;
+}
+
+.mobile-menu-item:last-child {
+    border-bottom: none;
+}
+
+.mobile-menu-item a {
+    display: block;
+    padding: 15px 25px;
+    color: var(--text-light);
+    font-size: 1.1em;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    text-align: left;
+}
+
+.mobile-menu-item a:hover {
+    background-color: var(--background-dark);
+}
+
+.mobile-menu-item .menu-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mobile-menu-item .menu-toggle i {
+    transition: transform 0.3s ease;
+}
+
+.mobile-menu-item .menu-toggle.active i {
+    transform: rotate(180deg);
+}
+
+.submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #2a2a2a; /* Fond du sous-menu */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.submenu.active {
+    max-height: 200px; /* Taille maximale du sous-menu déroulé */
+}
+
+.submenu li a {
+    padding: 10px 35px; /* Décaler les éléments du sous-menu */
+    font-size: 1em;
+    color: var(--light-gray);
+}
+
+.submenu li a:hover {
+    background-color: #3a3a3a;
+}
+
+/* ==========================================================================
+   DASHBOARD CONTENT
+   ========================================================================== */
+.dashboard-content {
+    padding: 30px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex: 1; /* Permet au contenu de prendre l'espace et de pousser le footer */
+}
+
+.dashboard-content h1 {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.dashboard-content h2 {
+    font-size: 1.8em;
+    color: var(--text-light);
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+/* Quick Access Section */
+.quick-access .access-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+.access-card {
+    background-color: var(--card-background);
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.access-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.access-card i {
+    font-size: 3em;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.access-card h3 {
+    font-size: 1.3em;
+    color: var(--text-light);
+    margin-bottom: 10px;
+}
+
+.access-card p {
+    font-size: 0.9em;
+    color: var(--light-gray);
+}
+
+/* Featured Content Section */
+.featured-content .content-carousel {
+    display: flex;
+    overflow-x: auto; /* Permet le défilement horizontal */
+    scroll-snap-type: x mandatory; /* Force le snap aux éléments */
+    -webkit-overflow-scrolling: touch; /* Améliore le scroll sur iOS */
+    padding-bottom: 15px; /* Pour éviter que la scrollbar ne cache le contenu */
+}
+
+.content-item {
+    flex: 0 0 250px; /* Largeur fixe pour chaque élément */
+    margin-right: 20px;
+    background-color: var(--card-background);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    scroll-snap-align: start; /* S'accroche au début de l'élément */
+}
+
+.content-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.content-item h3 {
+    padding: 10px 15px 5px;
+    font-size: 1.1em;
+    color: var(--primary-color);
+}
+
+.content-item p {
+    padding: 0 15px 15px;
+    font-size: 0.85em;
+    color: var(--light-gray);
+}
+
+/* Recent Activity Section */
+.recent-activity ul {
+    list-style: none;
+    padding: 0;
+}
+
+.recent-activity li {
+    background-color: var(--card-background);
+    margin-bottom: 15px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.recent-activity li .activity-time {
+    font-size: 0.8em;
+    color: var(--secondary-color);
+}
+
+
+/* Footer (pour Dashboard) */
+.main-footer {
+    background-color: var(--card-background);
+    color: var(--light-gray);
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: auto; /* Pousse le footer tout en bas */
+    border-top: 1px solid #2a2a2a;
+}
+
+.main-footer p {
+    margin: 0 0 10px 0;
+    font-size: 0.9em;
+}
+
+.main-footer .footer-links a {
+    color: var(--accent-color);
+    margin: 0 10px;
+    font-size: 0.9em;
+}
+
+
+/* Responsive design pour le Dashboard */
+@media (min-width: 768px) {
+    .desktop-nav {
+        display: block; /* Affiche la nav sur desktop */
+    }
+
+    .hamburger, .mobile-menu {
+        display: none; /* Cache le hamburger et le menu mobile */
+    }
+
+    .dashboard-content h1 {
+        text-align: left;
+    }
+
+    .quick-access .access-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 colonnes sur desktop */
+    }
+}
+
+@media (min-width: 1024px) {
+    .content-item {
+        flex: 0 0 300px; /* Plus large sur les grands écrans */
+    }
+}
