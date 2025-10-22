@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Gestion du menu Hamburger (identique au dashboard) ---
+    // --- Gestion du menu Hamburger ---
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
 
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         document.addEventListener('click', (event) => {
-            // Ferme le menu si on clique en dehors
+            // Ferme le menu si on clique en dehors, mais pas si on clique sur le hamburger lui-même
             if (!mobileMenu.contains(event.target) && !hamburger.contains(event.target) && mobileMenu.classList.contains('active')) {
                 mobileMenu.classList.remove('active');
             }
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.mobile-menu a[href^="#"], .desktop-nav a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                mobileMenu.classList.remove('active'); // Ferme le menu mobile
+                mobileMenu.classList.remove('active'); // Ferme le menu mobile si ouvert
 
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
@@ -64,7 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Dupliquer les commentaires pour créer un effet de défilement infini
-        comments.forEach(comment => {
+        // On duplique assez de fois pour éviter les blancs, en fonction du nombre de commentaires visibles
+        for (let i = 0; i < comments.length * 2; i++) { // Duplique 2 fois le set original
+            const comment = comments[i % comments.length]; // Réutilise les commentaires
             const commentCard = document.createElement('div');
             commentCard.classList.add('comment-card');
             commentCard.innerHTML = `
@@ -72,17 +74,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 <span class="author">- ${comment.author}</span>
             `;
             commentsCarousel.appendChild(commentCard);
-        });
+        }
 
-        // Mettre à jour la variable CSS pour l'animation responsive
+        // Mettre à jour la variable CSS pour l'animation responsive des commentaires
         document.documentElement.style.setProperty('--num-comments', comments.length);
     }
 
     // --- Animation du carrousel d'images (pour s'assurer qu'il démarre) ---
+    // L'animation est principalement gérée par CSS (@keyframes scrollImages)
+    // Ce bloc est là si vous aviez besoin d'une logique JS plus complexe,
+    // mais pour un simple défilement continu, le CSS est plus performant.
     const imageCarousel = document.getElementById('imageCarousel');
     if (imageCarousel) {
-        // Le CSS gère l'animation, mais on peut ajouter ici une logique si besoin,
-        // par exemple pour pauser au survol ou changer de vitesse.
-        // Pour l'instant, l'animation CSS suffit.
+        // Aucune logique JS complexe n'est nécessaire pour le moment ici.
+        // L'animation CSS est efficace.
     }
 });
