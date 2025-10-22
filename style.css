@@ -2,13 +2,14 @@
 :root {
     --primary-color: #007bff; /* Bleu vibrant */
     --secondary-color: #6c757d; /* Gris secondaire */
-    --background-dark: #222831; /* Fond sombre */
+    --background-dark: #121212; /* Fond sombre */
     --text-light: #eeeeee; /* Texte clair */
-    --card-background: #393e46; /* Fond des cartes/sections */
+    --card-background: #1e1e1e; /* Fond des cartes/sections */
     --accent-color: #00adb5; /* Couleur d'accentuation */
     --button-green: #28a745; /* Vert pour les succès/actions positives */
     --error-red: #dc3545; /* Rouge pour les erreurs */
     --light-gray: #cccccc; /* Gris clair */
+    --dark-gray: #333333; /* Gris foncé pour certains éléments */
 
     --font-poppins: 'Poppins', sans-serif;
     --font-roboto: 'Roboto', sans-serif;
@@ -21,12 +22,10 @@ body {
     color: var(--text-light);
     background-color: var(--background-dark);
     line-height: 1.6;
-    display: flex; /* Pour centrer le contenu de la page d'authentification */
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Prend toute la hauteur de l'écran */
-    padding: 20px;
-    box-sizing: border-box; /* Inclut le padding dans la largeur/hauteur */
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; /* Le body prend toute la hauteur et empile les éléments */
 }
 
 a {
@@ -45,187 +44,6 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0.5em;
 }
 
-/* ==========================================================================
-   Styles pour la page d'authentification (index.html)
-   ========================================================================== */
-.auth-page {
-    background: linear-gradient(135deg, var(--background-dark) 0%, #1a1e24 100%);
-}
-
-.auth-container {
-    background-color: var(--card-background);
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    max-width: 400px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px; /* Espacement entre les éléments */
-}
-
-.auth-logo-container {
-    margin-bottom: 10px;
-}
-
-.app-logo {
-    max-width: 120px; /* Ajustez la taille de votre logo */
-    height: auto;
-    display: block;
-}
-
-.auth-title {
-    font-size: 2.2em; /* Taille du titre "Mag-blue" */
-    color: var(--primary-color);
-    margin-bottom: 10px;
-}
-
-.auth-container h2 {
-    font-size: 1.2em;
-    color: var(--light-gray);
-    margin-bottom: 25px;
-}
-
-.auth-buttons {
-    width: 100%;
-    margin-bottom: 25px;
-}
-
-.btn-auth {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 12px 20px;
-    margin-bottom: 15px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-family: var(--font-poppins);
-}
-
-.btn-auth i {
-    margin-right: 10px;
-    font-size: 1.2em;
-}
-
-.google-auth {
-    background-color: #dd4b39; /* Couleur de Google */
-    color: white;
-}
-
-.google-auth:hover {
-    background-color: #c23321;
-}
-
-.email-auth {
-    background-color: var(--accent-color);
-    color: white;
-}
-
-.email-auth:hover {
-    background-color: #008c90;
-}
-
-.separator {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: var(--light-gray);
-    margin: 20px 0;
-    font-size: 0.9em;
-}
-
-.separator::before,
-.separator::after {
-    content: '';
-    flex: 1;
-    border-bottom: 1px solid var(--secondary-color);
-    margin: 0 10px;
-}
-
-.email-auth-section {
-    width: 100%;
-}
-
-.auth-form {
-    background-color: #323741; /* Couleur légèrement différente pour le formulaire */
-    padding: 25px;
-    border-radius: 8px;
-    margin-top: 20px;
-}
-
-.auth-form h3 {
-    color: var(--accent-color);
-    font-size: 1.5em;
-    margin-bottom: 20px;
-}
-
-.auth-form input[type="email"],
-.auth-form input[type="password"] {
-    width: calc(100% - 20px); /* Ajuste la largeur pour le padding */
-    padding: 12px 10px;
-    margin-bottom: 15px;
-    border: 1px solid var(--secondary-color);
-    border-radius: 5px;
-    background-color: var(--background-dark);
-    color: var(--text-light);
-    font-size: 1em;
-}
-
-.auth-form input[type="email"]::placeholder,
-.auth-form input[type="password"]::placeholder {
-    color: var(--light-gray);
-    opacity: 0.7;
-}
-
-.btn-primary {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    font-family: var(--font-poppins);
-    transition: background-color 0.3s ease;
-    width: 100%;
-    margin-top: 10px;
-}
-
-.btn-primary:hover {
-    background-color: #0056b3;
-}
-
-.auth-form p {
-    font-size: 0.9em;
-    margin-top: 20px;
-    color: var(--light-gray);
-}
-
-.auth-form p a {
-    font-weight: 600;
-}
-
-.auth-message {
-    margin-top: 20px;
-    font-size: 0.95em;
-    color: var(--error-red); /* Par défaut pour les erreurs, sera changé par JS */
-    min-height: 20px; /* Pour éviter les sauts de mise en page */
-}
-
-/* ==========================================================================
-   Styles pour le Tableau de Bord (dashboard.html)
-   ========================================================================== */
-body:not(.auth-page) {
-    display: block; /* Réinitialise le display flex pour le dashboard */
-    padding: 0; /* Réinitialise le padding pour le dashboard */
-}
-
 /* Header */
 .main-header {
     background-color: var(--card-background);
@@ -239,11 +57,24 @@ body:not(.auth-page) {
     z-index: 1000;
 }
 
-.main-header .logo {
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.app-logo-header {
+    max-width: 40px; /* Taille du logo dans l'en-tête */
+    height: auto;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-family: var(--font-poppins);
     font-size: 1.8em;
     font-weight: 700;
     color: var(--primary-color);
 }
+
 
 .main-header .desktop-nav {
     display: none; /* Masqué par défaut, affiché sur grand écran */
@@ -271,47 +102,13 @@ body:not(.auth-page) {
     text-decoration: none;
 }
 
-.main-header .desktop-nav .dropdown-toggle {
-    position: relative;
-}
-
-.main-header .desktop-nav .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: var(--card-background);
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
-    z-index: 1;
-    border-radius: 5px;
-    padding: 10px 0;
-    margin-top: 10px; /* Espace sous le bouton */
-}
-
-.main-header .desktop-nav .dropdown-content a {
-    color: var(--text-light);
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-    transition: background-color 0.3s ease;
-}
-
-.main-header .desktop-nav .dropdown-content a:hover {
-    background-color: var(--background-dark);
-}
-
-.main-header .desktop-nav .dropdown-toggle:hover .dropdown-content {
-    display: block;
-}
-
-
 /* Mobile Menu (Hamburger) */
 .hamburger {
     display: block; /* Visible par défaut sur mobile */
     font-size: 1.8em;
     cursor: pointer;
     color: var(--text-light);
-    z-index: 1001; /* S'assure que le hamburger est au-dessus du menu */
+    z-index: 1001;
 }
 
 .mobile-menu {
@@ -325,7 +122,7 @@ body:not(.auth-page) {
     transition: right 0.3s ease-in-out;
     padding-top: 70px; /* Espace pour le header */
     z-index: 999;
-    overflow-y: auto; /* Permet le défilement si le contenu est trop long */
+    overflow-y: auto;
 }
 
 .mobile-menu.active {
@@ -346,8 +143,7 @@ body:not(.auth-page) {
     border-bottom: none;
 }
 
-.mobile-menu-item a:not(.menu-toggle),
-.mobile-menu-item .menu-toggle {
+.mobile-menu-item a {
     display: block;
     padding: 15px 25px;
     color: var(--text-light);
@@ -355,143 +151,341 @@ body:not(.auth-page) {
     text-decoration: none;
     transition: background-color 0.3s ease;
     text-align: left;
-    width: 100%;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-family: var(--font-poppins);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
-.mobile-menu-item a:not(.menu-toggle):hover,
-.mobile-menu-item .menu-toggle:hover {
+.mobile-menu-item a:hover {
     background-color: var(--background-dark);
 }
 
-.mobile-menu-item .menu-toggle i.fas {
-    transition: transform 0.3s ease;
-}
-
-.mobile-menu-item .menu-toggle.active i.fas {
-    transform: rotate(90deg); /* Rotation pour l'icône de sous-menu */
-}
-
-.submenu {
-    list-style: none;
-    padding: 0;
-    background-color: #323741; /* Couleur de fond pour le sous-menu */
-    display: none; /* Masqué par défaut */
-    max-height: 0; /* Pour l'animation de slide */
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-}
-
-.submenu.active {
-    display: block; /* Affiché quand actif */
-    max-height: 500px; /* Valeur suffisante pour contenir tous les éléments */
-}
-
-.submenu li a {
-    padding: 12px 35px; /* Indentation pour les éléments du sous-menu */
-    font-size: 1em;
-    color: var(--light-gray);
-}
-
-.submenu li a:hover {
-    background-color: #2a2e34;
-}
-
-.user-info {
+.user-info { /* Utilisé pour le logo Mag-blue dans le menu mobile */
     text-align: center;
     padding: 20px 0;
     border-bottom: 1px solid #444;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.app-logo-mobile {
+    max-width: 60px; /* Taille du logo dans le menu mobile */
+    height: auto;
+    margin-bottom: 10px;
 }
 
 .user-info p {
     margin: 0;
     font-size: 1.1em;
     font-weight: 600;
+    color: var(--primary-color);
 }
 
-.logout-btn {
-    background-color: var(--error-red);
+
+/* Main content wrapper */
+.content-wrapper {
+    flex: 1; /* Prend l'espace restant entre header et footer */
+    padding: 0; /* Pas de padding global, les sections gèrent leur padding */
+}
+
+/* ==========================================================================
+   Hero Section (Accueil)
+   ========================================================================== */
+.hero-section {
+    background: linear-gradient(135deg, var(--background-dark) 0%, #0a0a0a 100%);
+    display: flex;
+    flex-direction: column; /* Empile sur mobile */
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* Cache les images du carrousel qui débordent */
+    min-height: 80vh; /* Prend une bonne partie de la hauteur de l'écran */
+}
+
+.hero-content {
+    max-width: 600px;
+    z-index: 10; /* Au-dessus des images du carrousel */
+    position: relative;
+    margin-bottom: 30px; /* Espacement entre contenu et carrousel sur mobile */
+}
+
+.hero-logo {
+    max-width: 150px; /* Taille du logo principal */
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.hero-title {
+    font-size: 2.8em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.hero-description {
+    font-size: 1.1em;
+    color: var(--light-gray);
+    margin-bottom: 30px;
+}
+
+.btn-start {
+    background-color: var(--accent-color);
     color: white;
+    padding: 15px 30px;
     border: none;
-    padding: 10px 20px;
+    border-radius: 50px; /* Bouton arrondi */
+    cursor: pointer;
+    font-size: 1.2em;
+    font-family: var(--font-poppins);
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0, 173, 181, 0.4);
+}
+
+.btn-start:hover {
+    background-color: #008c90;
+    transform: translateY(-2px);
+}
+
+.image-carousel-container {
+    width: 100%;
+    max-width: 1000px; /* Limite la largeur du carrousel */
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0;
+}
+
+.image-carousel {
+    display: flex;
+    animation: scrollImages 20s linear infinite; /* Animation de défilement */
+    will-change: transform; /* Optimisation pour l'animation */
+}
+
+.image-carousel img {
+    width: 300px; /* Taille de chaque image, ajustez au besoin */
+    height: 180px; /* Hauteur fixe pour toutes les images */
+    object-fit: cover;
+    margin: 0 10px; /* Espacement entre les images */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+    flex-shrink: 0; /* Empêche les images de se rétrécir */
+}
+
+@keyframes scrollImages {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-330px * 4)); } /* (largeur image + marge) * nombre d'images */
+}
+
+
+/* ==========================================================================
+   Sections Générales (Programmes, Contact)
+   ========================================================================== */
+section {
+    padding: 60px 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+    text-align: center;
+}
+
+section:nth-of-type(odd) { /* Pour alterner les couleurs de fond */
+    background-color: var(--card-background);
+}
+
+.section-title {
+    font-size: 2.2em;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+}
+
+/* Programmes Section */
+.programmes-section {
+    background-color: var(--dark-gray);
+}
+
+.program-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Une colonne sur mobile */
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.program-card {
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.program-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+.program-card i {
+    font-size: 3em;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.program-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: var(--text-light);
+}
+
+.program-card p {
+    color: var(--light-gray);
+    font-size: 0.95em;
+}
+
+/* Commentaires Section */
+.comments-carousel {
+    display: flex;
+    overflow: hidden; /* Cache les commentaires en dehors de la vue */
+    width: 100%;
+    margin-top: 40px;
+    position: relative;
+    padding: 20px 0; /* Padding pour les ombres */
+}
+
+.comment-card {
+    background-color: var(--card-background);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    flex-shrink: 0; /* Empêche la carte de se rétrécir */
+    width: calc(100% - 40px); /* Largeur sur mobile, ajustez le 40px si besoin */
+    margin: 0 20px; /* Espacement horizontal */
+    text-align: left;
+}
+
+.comment-card .author {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-top: 15px;
+    display: block;
+}
+
+/* Contact Section */
+.contact-section p {
+    font-size: 1.1em;
+    color: var(--light-gray);
+    margin-bottom: 30px;
+}
+
+.btn-contact {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 25px;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1em;
-    margin-top: 20px;
+    font-family: var(--font-poppins);
     transition: background-color 0.3s ease;
 }
 
-.logout-btn:hover {
-    background-color: #a71d2a;
+.btn-contact:hover {
+    background-color: #0056b3;
 }
 
-/* Content */
-.dashboard-content {
-    padding: 30px 20px;
-    max-width: 1200px;
-    margin: 20px auto;
+/* Footer */
+.main-footer {
     background-color: var(--card-background);
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.dashboard-content h1 {
-    color: var(--primary-color);
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 2.5em;
-}
-
-.widget-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Une colonne sur mobile */
-    gap: 20px;
-}
-
-.widget {
-    background-color: var(--background-dark);
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-}
-
-.widget h3 {
-    color: var(--accent-color);
-    margin-bottom: 15px;
-}
-
-.widget p {
     color: var(--light-gray);
-    font-size: 0.95em;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: auto; /* Pousse le footer tout en bas */
+    border-top: 1px solid #2a2a2a;
+}
+
+.main-footer p {
+    margin: 0 0 10px 0;
+    font-size: 0.9em;
+}
+
+.main-footer .footer-links a {
+    color: var(--accent-color);
+    margin: 0 10px;
+    font-size: 0.9em;
 }
 
 /* Responsive design */
 @media (min-width: 768px) {
     .main-header .desktop-nav {
-        display: block; /* Affiche la nav desktop */
+        display: block;
     }
 
     .hamburger, .mobile-menu {
-        display: none; /* Cache le menu mobile */
+        display: none;
     }
 
-    .dashboard-content {
-        padding: 40px;
+    .hero-section {
+        flex-direction: row; /* Côte à côte sur grand écran */
+        text-align: left;
+        padding: 80px 40px;
     }
 
-    .widget-grid {
+    .hero-content {
+        margin-right: 50px;
+        margin-bottom: 0;
+    }
+
+    .hero-title {
+        font-size: 3.5em;
+    }
+
+    .image-carousel-container {
+        flex: 1; /* Prend l'espace restant */
+        padding: 0;
+    }
+
+    .image-carousel {
+        justify-content: flex-end; /* Aligne le carrousel à droite */
+        animation: scrollImagesMD 20s linear infinite; /* Nouvelle animation pour desktop */
+    }
+
+    .image-carousel img {
+        width: 250px; /* Ajuste la taille des images sur desktop */
+        height: 150px;
+        margin: 0 5px;
+    }
+
+    @keyframes scrollImagesMD {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-260px * 4)); } /* (largeur img + marge) * nb images */
+    }
+
+    .program-grid {
         grid-template-columns: repeat(2, 1fr); /* Deux colonnes sur tablette */
+    }
+
+    .comment-card {
+        width: calc(50% - 40px); /* Deux commentaires par ligne sur tablette */
+    }
+    
+    .comments-carousel {
+        animation: scrollComments 25s linear infinite; /* Animation des commentaires */
+    }
+
+    @keyframes scrollComments {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-100% * var(--num-comments) / 2)); } /* Ajustez le 2 en fonction du nombre de commentaires visibles */
     }
 }
 
 @media (min-width: 1024px) {
-    .widget-grid {
-        grid-template-columns: repeat(3, 1fr); /* Trois colonnes sur desktop */
+    .program-grid {
+        grid-template-columns: repeat(4, 1fr); /* Quatre colonnes sur desktop */
     }
-                }
+
+    .comment-card {
+        width: calc(33.33% - 40px); /* Trois commentaires par ligne sur grand écran */
+    }
+
+    @keyframes scrollComments {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-100% * var(--num-comments) / 3)); } /* Ajustez le 3 */
+    }
+    }
