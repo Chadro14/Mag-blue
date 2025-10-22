@@ -17,9 +17,9 @@
         <nav class="desktop-nav">
             <ul>
                 <li><a href="#">Accueil</a></li>
-                <li><a href="#">Catégories</a></li>
-                <li><a href="#">Mes listes</a></li>
-                <li><a href="#">Tarifs & Services</a></li>
+                <li><a href="#">Streaming</a></li>
+                <li><a href="#">Apps Premium</a></li>
+                <li><a href="#">Comptes Certifiés</a></li>
                 <li><a href="#">Support</a></li>
                 <li><a href="#">À Propos</a></li>
                 <li><a href="#" id="logoutBtn">Déconnexion</a></li>
@@ -37,29 +37,9 @@
         </div>
         <ul>
             <li class="mobile-menu-item"><a href="#" class="menu-link">Accueil</a></li>
-            <li class="mobile-menu-item">
-                <a href="#" class="menu-toggle" data-target="categoriesSubmenu">
-                    Catégories <i class="fas fa-chevron-down"></i>
-                </a>
-                <ul class="submenu" id="categoriesSubmenu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Comédie</a></li>
-                    <li><a href="#">Drame</a></li>
-                    <li><a href="#">Science-fiction</a></li>
-                    <li><a href="#">Horreur</a></li>
-                </ul>
-            </li>
-            <li class="mobile-menu-item">
-                <a href="#" class="menu-toggle" data-target="myListsSubmenu">
-                    Mes listes <i class="fas fa-chevron-down"></i>
-                </a>
-                <ul class="submenu" id="myListsSubmenu">
-                    <li><a href="#">À regarder</a></li>
-                    <li><a href="#">Favoris</a></li>
-                    <li><a href="#">Historique</a></li>
-                </ul>
-            </li>
-            <li class="mobile-menu-item"><a href="#" class="menu-link">Tarifs & Services</a></li>
+            <li class="mobile-menu-item"><a href="#" class="menu-link">Streaming</a></li>
+            <li class="mobile-menu-item"><a href="#" class="menu-link">Apps Premium</a></li>
+            <li class="mobile-menu-item"><a href="#" class="menu-link">Comptes Certifiés</a></li>
             <li class="mobile-menu-item"><a href="#" class="menu-link">Support</a></li>
             <li class="mobile-menu-item"><a href="#" class="menu-link">À Propos</a></li>
             <li class="mobile-menu-item"><a href="#" class="menu-link">Profil</a></li>
@@ -70,34 +50,8 @@
     <main class="dashboard-content">
         <h1 id="welcomeMessage">Bienvenue sur Mag-blue !</h1>
 
-        <section class="quick-access">
-            <h2>Accès rapide</h2>
-            <div class="access-grid">
-                <div class="access-card">
-                    <i class="fas fa-play-circle"></i>
-                    <h3>Reprendre la lecture</h3>
-                    <p>Continuez où vous vous étiez arrêté.</p>
-                </div>
-                <div class="access-card">
-                    <i class="fas fa-plus-circle"></i>
-                    <h3>Nouveautés</h3>
-                    <p>Découvrez les derniers ajouts au catalogue.</p>
-                </div>
-                <div class="access-card">
-                    <i class="fas fa-heart"></i>
-                    <h3>Vos Favoris</h3>
-                    <p>Retrouvez vos films et séries préférés.</p>
-                </div>
-                <div class="access-card">
-                    <i class="fas fa-compass"></i>
-                    <h3>Explorer</h3>
-                    <p>Parcourez notre immense bibliothèque.</p>
-                </div>
-            </div>
-        </section>
-
         <section class="featured-content">
-            <h2>À la une</h2>
+            <h2>Nos Contenus Phares</h2>
             <div class="content-carousel">
                 <div class="content-item">
                     <img src="assets/featured-1.jpg" alt="Featured Content 1">
@@ -122,55 +76,116 @@
             </div>
         </section>
 
-        <section class="pricing-section">
-            <h2>Tarifs & Services Mag-blue</h2>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>Canaux Streaming</h3>
-                    <ul>
-                        <li><i class="fab fa-netflix"></i> Netflix Premium: 15.99€/mois</li>
-                        <li><i class="fab fa-amazon"></i> Prime Video: 6.99€/mois</li>
-                        <li><i class="fab fa-disney"></i> Disney+: 8.99€/mois</li>
-                        <li><i class="fab fa-hulu"></i> Hulu: 7.99€/mois</li>
-                        <li><i class="fas fa-tv"></i> Autres Canaux: Sur demande</li>
-                    </ul>
+        <section class="service-section streaming-section">
+            <h2>Prix des Canaux Streaming</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>Netflix Premium</h3>
+                    <img src="assets/logo-netflix.png" alt="Netflix Logo" class="service-logo">
+                    <p class="price">15.99€ / mois</p>
+                    <button class="btn-offer" data-service="Netflix">Voir l'offre</button>
                 </div>
-
-                <div class="pricing-card">
-                    <h3>Applications Premium (Montage, etc.)</h3>
-                    <ul>
-                        <li><i class="fab fa-adobe"></i> Suite Adobe Creative Cloud: 59.99€/mois</li>
-                        <li><i class="fas fa-video"></i> Final Cut Pro: 299.99€ (achat unique)</li>
-                        <li><i class="fas fa-music"></i> Spotify Premium: 9.99€/mois</li>
-                        <li><i class="fas fa-cloud"></i> Dropbox Pro: 11.99€/mois</li>
-                        <li><i class="fas fa-tools"></i> Autres Apps: Sur demande</li>
-                    </ul>
+                <div class="service-card">
+                    <h3>Prime Video</h3>
+                    <img src="assets/logo-primevideo.png" alt="Prime Video Logo" class="service-logo">
+                    <p class="price">6.99€ / mois</p>
+                    <button class="btn-offer" data-service="Prime Video">Voir l'offre</button>
+                </div>
+                <div class="service-card">
+                    <h3>Disney+</h3>
+                    <img src="assets/logo-disneyplus.png" alt="Disney+ Logo" class="service-logo">
+                    <p class="price">8.99€ / mois</p>
+                    <button class="btn-offer" data-service="Disney+">Voir l'offre</button>
+                </div>
+                <div class="service-card">
+                    <h3>Canal+</h3>
+                    <img src="assets/logo-canalplus.png" alt="Canal+ Logo" class="service-logo">
+                    <p class="price">24.99€ / mois</p>
+                    <button class="btn-offer" data-service="Canal+">Voir l'offre</button>
+                </div>
+                <div class="service-card">
+                    <h3>Paramount+</h3>
+                    <img src="assets/logo-paramountplus.png" alt="Paramount+ Logo" class="service-logo">
+                    <p class="price">7.99€ / mois</p>
+                    <button class="btn-offer" data-service="Paramount+">Voir l'offre</button>
+                </div>
+                <div class="service-card">
+                    <h3>Hulu</h3>
+                    <img src="assets/logo-hulu.png" alt="Hulu Logo" class="service-logo">
+                    <p class="price">7.99€ / mois</p>
+                    <button class="btn-offer" data-service="Hulu">Voir l'offre</button>
                 </div>
             </div>
         </section>
 
-        <section class="certification-section">
-            <h2>Certification de Comptes Réseaux Sociaux</h2>
-            <div class="certification-grid">
-                <div class="certification-card">
-                    <i class="fab fa-whatsapp"></i>
+        <section class="service-section apps-section">
+            <h2>Applications Premium (Montage, etc.)</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>CapCut Pro</h3>
+                    <img src="assets/logo-capcut.png" alt="CapCut Logo" class="service-logo">
+                    <p class="price">9.99€ / mois</p>
+                    <button class="btn-offer" data-service="CapCut Pro">Voir l'offre</button>
+                </div>
+                <div class="service-card">
+                    <h3>Canva Pro</h3>
+                    <img src="assets/logo-canva.png" alt="Canva Logo" class="service-logo">
+                    <p class="price">11.99€ / mois</p>
+                    <button class="btn-offer" data-service="Canva Pro">Voir l'offre</button>
+                </div>
+                <div class="service-card">
+                    <h3>MT Manager Premium</h3>
+                    <img src="assets/logo-mtmanager.png" alt="MT Manager Logo" class="service-logo">
+                    <p class="price">5.99€ / mois</p>
+                    <button class="btn-offer" data-service="MT Manager Premium">Voir l'offre</button>
+                </div>
+                <div class="service-card">
+                    <h3>Adobe Photoshop</h3>
+                    <img src="assets/logo-photoshop.png" alt="Photoshop Logo" class="service-logo">
+                    <p class="price">20.99€ / mois</p>
+                    <button class="btn-offer" data-service="Adobe Photoshop">Voir l'offre</button>
+                </div>
+                <div class="service-card">
+                    <h3>Filmora Pro</h3>
+                    <img src="assets/logo-filmora.png" alt="Filmora Logo" class="service-logo">
+                    <p class="price">10.99€ / mois</p>
+                    <button class="btn-offer" data-service="Filmora Pro">Voir l'offre</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="service-section certified-accounts-section">
+            <h2>Comptes Certifiés & Boostage Abonnés</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>Instagram Certifié</h3>
+                    <img src="assets/logo-instagram.png" alt="Instagram Logo" class="service-logo">
+                    <p class="price">35€ / mois</p>
+                    <button class="btn-offer" data-service="Instagram Certifié">Voir l'offre</button>
+                </div>
+                <div class="service-card">
+                    <h3>TikTok Certifié</h3>
+                    <img src="assets/logo-tiktok.png" alt="TikTok Logo" class="service-logo">
+                    <p class="price">30€ / mois</p>
+                    <button class="btn-offer" data-service="TikTok Certifié">Voir l'offre</button>
+                </div>
+                <div class="service-card">
+                    <h3>Facebook Certifié</h3>
+                    <img src="assets/logo-facebook.png" alt="Facebook Logo" class="service-logo">
+                    <p class="price">35€ / mois</p>
+                    <button class="btn-offer" data-service="Facebook Certifié">Voir l'offre</button>
+                </div>
+                <div class="service-card">
                     <h3>WhatsApp (Compte & Chaîne)</h3>
-                    <p>Faites certifier votre compte ou votre chaîne WhatsApp pour une crédibilité accrue. <span class="price">25€/mois</span></p>
+                    <img src="assets/logo-whatsapp.png" alt="WhatsApp Logo" class="service-logo">
+                    <p class="price">25€ / mois</p>
+                    <button class="btn-offer" data-service="WhatsApp Certifié">Voir l'offre</button>
                 </div>
-                <div class="certification-card">
-                    <i class="fab fa-tiktok"></i>
-                    <h3>TikTok</h3>
-                    <p>Obtenez la certification de votre profil TikTok pour plus de visibilité. <span class="price">30€/mois</span></p>
-                </div>
-                <div class="certification-card">
-                    <i class="fab fa-instagram"></i>
-                    <h3>Instagram</h3>
-                    <p>Badge de certification pour votre compte Instagram, augmentez votre authenticité. <span class="price">35€/mois</span></p>
-                </div>
-                <div class="certification-card">
-                    <i class="fab fa-facebook-f"></i>
-                    <h3>Facebook</h3>
-                    <p>Certification pour votre profil ou page Facebook. <span class="price">35€/mois</span></p>
+                <div class="service-card">
+                    <h3>Boostage Abonnés (Multi-plateformes)</h3>
+                    <img src="assets/logo-followers.png" alt="Followers Logo" class="service-logo">
+                    <p class="price">À partir de 50€</p>
+                    <button class="btn-offer" data-service="Boostage Abonnés">Voir l'offre</button>
                 </div>
             </div>
         </section>
@@ -179,7 +194,8 @@
             <h2>Notre Support</h2>
             <p>Nous sommes là pour vous aider ! Contactez-nous via nos canaux de support.</p>
             <div class="support-channels">
-                <a href="https://wa.me/votre_numero" target="_blank" class="support-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://wa.me/243905526836" target="_blank" class="support-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Altesse</a>
+                <a href="https://wa.me/243831783685" target="_blank" class="support-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Stone</a>
                 <a href="https://instagram.com/votre_profil" target="_blank" class="support-btn instagram"><i class="fab fa-instagram"></i> Instagram</a>
                 <a href="https://tiktok.com/@votre_profil" target="_blank" class="support-btn tiktok"><i class="fab fa-tiktok"></i> TikTok</a>
                 <a href="https://facebook.com/votre_page" target="_blank" class="support-btn facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
@@ -212,15 +228,6 @@
                 Mag-blue a été créé avec la mission de centraliser et d'optimiser votre expérience de divertissement et de travail digital. Nous nous engageons à offrir des services de qualité, fiables et innovants.
             </p>
         </section>
-
-        <section class="recent-activity">
-            <h2>Activité récente</h2>
-            <ul>
-                <li>Vous avez regardé "Film Génial" <span class="activity-time">il y a 2h</span></li>
-                <li>"Série Exceptionnelle" a une nouvelle saison ! <span class="activity-time">Hier</span></li>
-                <li>"Documentaire Fascinant" ajouté à votre liste "À regarder" <span class="activity-time">Il y a 3 jours</span></li>
-            </ul>
-        </section>
     </main>
 
     <footer class="main-footer">
@@ -233,5 +240,5 @@
 
     <script src="dashboard.js"></script>
 </body>
-</html>
-
+                        </html>
+                        
