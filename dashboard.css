@@ -1,16 +1,15 @@
-/* Variables CSS pour un thème bleu et blanc */
+/* Variables CSS */
 :root {
-    --primary-color: #007bff; /* Bleu principal pour les titres, accents */
-    --accent-color: #00adb5; /* Bleu d'accentuation pour les prix, certains liens */
-    --background-dark: #003366; /* Bleu foncé pour le fond général du tableau de bord */
-    --text-light: #ffffff; /* Texte principal en blanc */
-    --card-background: #004488; /* Bleu légèrement plus clair pour les cartes/sections */
-    --secondary-text: #e0e0e0; /* Blanc cassé pour les textes secondaires/descriptions */
-    --border-color: #0055aa; /* Couleur de bordure pour les éléments internes */
-    --button-bg-hover: #0056b3; /* Bleu plus foncé pour le hover des boutons */
-    --header-shadow: rgba(0, 0, 0, 0.3); /* Ombre pour le header */
-    --card-shadow: rgba(0, 0, 0, 0.4); /* Ombre pour les cartes */
-    --card-hover-shadow: rgba(0, 0, 0, 0.7); /* Ombre plus intense au hover */
+    --primary-color: #007bff; /* Bleu vibrant */
+    --secondary-color: #6c757d; /* Gris secondaire */
+    --background-dark: #121212; /* Fond sombre principal */
+    --text-light: #eeeeee; /* Texte clair */
+    --card-background: #1e1e1e; /* Fond des cartes/sections */
+    --accent-color: #00adb5; /* Couleur d'accentuation */
+    --button-green: #28a745; /* Vert pour les succès/actions positives */
+    --error-red: #dc3545; /* Rouge pour les erreurs */
+    --light-gray: #cccccc; /* Gris clair */
+    --dark-gray: #333333; /* Gris foncé pour certains éléments */
 
     --font-poppins: 'Poppins', sans-serif;
     --font-roboto: 'Roboto', sans-serif;
@@ -20,20 +19,17 @@
 body {
     margin: 0;
     font-family: var(--font-roboto);
-    color: var(--text-light); /* Texte global en blanc */
-    background-color: var(--background-dark); /* Arrière-plan bleu foncé */
-    line-height: 1.4; /* Ligne-hauteur réduite pour la compacité */
+    color: var(--text-light);
+    background-color: var(--background-dark);
+    line-height: 1.6;
     min-height: 100vh;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 a {
-    color: var(--accent-color); /* Liens en bleu d'accentuation */
+    color: var(--accent-color);
     text-decoration: none;
 }
 
@@ -43,22 +39,21 @@ a:hover {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-poppins);
-    color: var(--primary-color); /* Titres en bleu principal */
+    color: var(--text-light);
     margin-top: 0;
-    margin-bottom: 0.3em; /* Marge réduite */
-    line-height: 1.1; /* Ligne-hauteur réduite pour les titres */
+    margin-bottom: 0.5em;
 }
 
 /* ==========================================================================
    HEADER et NAVIGATION
    ========================================================================== */
 .main-header {
-    background-color: var(--card-background); /* Header en bleu légèrement plus clair */
-    padding: 10px 15px; /* Padding réduit */
+    background-color: var(--card-background);
+    padding: 15px 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 1px 6px var(--header-shadow); /* Ombre subtile */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -70,20 +65,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .app-logo-header {
-    max-width: 30px; /* Logo plus petit */
+    max-width: 40px;
     height: auto;
-    margin-right: 7px;
+    margin-right: 10px;
 }
 
 .logo-text {
     font-family: var(--font-poppins);
-    font-size: 1.5em; /* Taille du texte du logo réduite */
+    font-size: 1.8em;
     font-weight: 700;
-    color: var(--primary-color); /* Texte du logo en bleu */
+    color: var(--primary-color);
 }
 
 .desktop-nav {
-    display: none; /* Caché par défaut sur mobile */
+    display: none;
 }
 
 .desktop-nav ul {
@@ -94,67 +89,66 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .desktop-nav ul li {
-    margin-left: 20px; /* Marge réduite */
+    margin-left: 30px;
 }
 
 .desktop-nav ul li a {
-    color: var(--text-light); /* Liens nav en blanc */
-    font-weight: 500;
-    font-size: 0.9em;
+    color: var(--text-light);
+    font-weight: 600;
     transition: color 0.3s ease;
 }
 
 .desktop-nav ul li a:hover {
-    color: var(--accent-color); /* Hover en bleu d'accentuation */
+    color: var(--accent-color);
     text-decoration: none;
 }
 
 .hamburger {
-    display: block; /* Visible par défaut sur mobile */
-    font-size: 1.5em; /* Taille du hamburger réduite */
+    display: block;
+    font-size: 1.8em;
     cursor: pointer;
-    color: var(--text-light); /* Hamburger en blanc */
+    color: var(--text-light);
     z-index: 1001;
 }
 
 .mobile-menu {
     position: fixed;
     top: 0;
-    right: -100%; /* Caché par défaut */
-    width: 200px; /* Largeur du menu mobile réduite */
+    right: -100%;
+    width: 250px;
     height: 100%;
-    background-color: var(--card-background); /* Menu mobile en bleu carte */
-    box-shadow: -3px 0 10px var(--card-shadow);
+    background-color: var(--card-background);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.4);
     transition: right 0.3s ease-in-out;
-    padding-top: 55px; /* Espace ajusté pour le header */
+    padding-top: 70px;
     z-index: 999;
     overflow-y: auto;
 }
 
 .mobile-menu.active {
-    right: 0; /* Affiché */
+    right: 0;
 }
 
 .user-info {
     text-align: center;
-    padding: 12px 0; /* Padding réduit */
-    border-bottom: 1px solid var(--border-color); /* Bordure en bleu */
+    padding: 20px 0;
+    border-bottom: 1px solid #444;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .app-logo-mobile {
-    max-width: 45px; /* Logo mobile réduit */
+    max-width: 60px;
     height: auto;
-    margin-bottom: 7px;
+    margin-bottom: 10px;
 }
 
 .user-info p {
     margin: 0;
-    font-size: 0.95em; /* Taille de police réduite */
-    font-weight: 500;
-    color: var(--primary-color); /* Texte user info en bleu */
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--primary-color);
 }
 
 .mobile-menu ul {
@@ -164,7 +158,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .mobile-menu-item {
-    border-bottom: 1px solid var(--border-color); /* Bordure en bleu */
+    border-bottom: 1px solid #444;
 }
 
 .mobile-menu-item:last-child {
@@ -173,460 +167,426 @@ h1, h2, h3, h4, h5, h6 {
 
 .mobile-menu-item a {
     display: block;
-    padding: 10px 18px; /* Padding réduit */
-    color: var(--text-light); /* Liens mobile en blanc */
-    font-size: 0.95em;
+    padding: 15px 25px;
+    color: var(--text-light);
+    font-size: 1.1em;
     text-decoration: none;
     transition: background-color 0.3s ease;
     text-align: left;
 }
 
 .mobile-menu-item a:hover {
-    background-color: var(--background-dark); /* Hover en bleu foncé */
+    background-color: var(--background-dark);
 }
 
 /* ==========================================================================
-   DASHBOARD CONTENT (structure principale et sections)
+   DASHBOARD CONTENT (structure principale)
    ========================================================================== */
 .dashboard-content {
-    padding: 20px 10px; /* Padding global réduit */
-    max-width: 900px; /* Largeur maximale pour le contenu principal */
-    margin: 0 auto; /* Centrage automatique */
-    flex: 1; /* Permet au contenu de prendre l'espace disponible */
-    box-sizing: border-box;
+    padding: 30px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex: 1;
 }
 
 .dashboard-content h1 {
-    font-size: 1.6em; /* H1 plus petit */
-    color: var(--primary-color); /* H1 en bleu */
+    font-size: 2.2em; /* Réduit la taille sur mobile */
+    color: var(--primary-color);
     text-align: center;
-    margin-bottom: 25px; /* Marge réduite */
-    padding: 10px; /* Padding réduit */
-    background-color: var(--card-background); /* Fond en bleu carte */
-    border-radius: 8px; /* Bordures plus douces */
-    box-shadow: 0 2px 10px var(--header-shadow);
-    max-width: 95%; /* S'assure de ne pas déborder */
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: 40px; /* Réduit la marge */
+    padding: 15px; /* Réduit le padding */
+    background-color: var(--card-background);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Général pour toutes les sections de service (y compris Support et À Propos) */
 .service-section {
-    background-color: var(--card-background); /* Fond de section en bleu carte */
-    padding: 20px 12px; /* Padding réduit */
-    border-radius: 8px; /* Bordures plus douces */
-    box-shadow: 0 5px 15px var(--card-shadow);
-    margin-bottom: 35px; /* Marge réduite */
-    text-align: center; /* Centrage des titres et textes secondaires par défaut */
-    box-sizing: border-box;
+    background-color: var(--card-background);
+    padding: 30px 15px; /* Padding réduit sur mobile */
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    margin-bottom: 50px; /* Marge réduite */
+    text-align: center;
 }
 
 .service-section h2 {
     font-family: var(--font-poppins);
-    font-size: 1.4em; /* H2 plus petit */
-    color: var(--primary-color); /* H2 en bleu */
-    margin-bottom: 20px; /* Marge réduite */
+    font-size: 1.8em; /* Réduit la taille du h2 sur mobile */
+    color: var(--accent-color);
+    margin-bottom: 30px; /* Marge réduite */
     position: relative;
-    display: inline-block; /* Pour centrer le pseudo-élément */
-    max-width: 95%;
-    word-wrap: break-word; /* Permet la césure des mots longs */
-    text-align: center;
+    display: inline-block;
+    max-width: 100%; /* S'assure que le titre ne dépasse pas */
+    word-wrap: break-word; /* Permet la césure si le mot est trop long */
 }
 
-.service-section h2::after { /* Ligne sous les titres */
+.service-section h2::after {
     content: '';
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: -7px; /* Ligne plus proche du texte */
-    width: 35px; /* Ligne plus courte */
-    height: 1.5px; /* Ligne plus fine */
-    background-color: var(--primary-color); /* Ligne en bleu */
+    bottom: -10px;
+    width: 50px; /* Ligne plus courte */
+    height: 3px;
+    background-color: var(--primary-color);
     border-radius: 5px;
 }
 
 .service-section p {
-    font-size: 0.9em; /* Texte de paragraphe plus petit */
-    color: var(--secondary-text); /* Texte secondaire en blanc cassé */
-    margin-bottom: 18px; /* Marge réduite */
+    font-size: 1em; /* Taille de police légèrement réduite */
+    color: var(--light-gray);
+    margin-bottom: 25px;
     max-width: 90%; /* Limite la largeur du paragraphe pour un meilleur centrage */
     margin-left: auto;
     margin-right: auto;
-    line-height: 1.4;
 }
 
 /* Grille de cartes de service (Streaming, Apps, Certified Accounts) */
 .service-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Min-width réduit pour plus de cartes sur mobile */
-    gap: 12px; /* Espacement réduit entre les cartes */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Min-width légèrement réduit */
+    gap: 20px; /* Espacement réduit */
     justify-content: center;
     align-items: stretch;
 }
 
 .service-card {
-    background-color: var(--background-dark); /* Fond de carte en bleu foncé */
-    padding: 15px; /* Padding réduit */
-    border-radius: 7px; /* Bordures plus petites */
+    background-color: var(--background-dark);
+    padding: 20px; /* Padding réduit */
+    border-radius: 10px;
     text-align: center;
-    box-shadow: 0 2px 7px var(--card-shadow);
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transitions douces */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Ombre légèrement plus douce */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Assure que le bouton "Voir l'offre" est en bas */
-    box-sizing: border-box;
+    justify-content: space-between;
 }
 
 .service-card:hover {
-    transform: translateY(-2px); /* Effet hover subtil */
-    box-shadow: 0 4px 10px var(--card-hover-shadow);
+    transform: translateY(-5px); /* Effet hover plus subtil */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
 }
 
 .service-card h3 {
-    font-size: 1.1em; /* Titre de carte plus petit */
-    color: var(--primary-color); /* Titre en bleu */
-    margin-bottom: 7px;
+    font-size: 1.3em; /* Taille du titre de carte réduite */
+    color: var(--primary-color);
+    margin-bottom: 10px;
 }
 
 .service-logo {
-    max-width: 50px; /* Taille des logos de service réduite */
+    max-width: 70px; /* Taille des logos de service réduite */
     height: auto;
-    margin: 0 auto 10px;
-    border-radius: 5px;
-    box-shadow: 0 1px 4px var(--card-shadow);
+    margin: 0 auto 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 .service-card .price {
-    font-size: 1.2em; /* Taille du prix réduite */
-    font-weight: 600;
-    color: var(--accent-color); /* Prix en bleu d'accentuation */
-    margin-bottom: 15px; /* Marge réduite */
+    font-size: 1.4em; /* Taille du prix réduite */
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 20px;
 }
 
 .btn-offer {
-    background-color: var(--primary-color); /* Bouton en bleu */
-    color: var(--text-light); /* Texte du bouton en blanc */
-    padding: 8px 15px; /* Padding du bouton réduit */
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px; /* Padding du bouton réduit */
     border: none;
-    border-radius: 30px; /* Bouton plus arrondi */
+    border-radius: 50px;
     cursor: pointer;
-    font-size: 0.8em; /* Taille de police du bouton réduite */
-    font-weight: 500;
-    transition: background-color 0.2s ease, transform 0.1s ease;
-    margin-top: auto; /* Pousse le bouton vers le bas */
+    font-size: 0.9em; /* Taille de police du bouton réduite */
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: auto;
 }
 
 .btn-offer:hover {
-    background-color: var(--button-bg-hover); /* Hover en bleu plus foncé */
+    background-color: #0056b3;
     transform: translateY(-1px);
 }
 
 /* Section Contenus Phares (Featured Content) - Carrousel */
 .featured-content {
-    background-color: var(--card-background); /* Fond en bleu carte */
-    padding: 20px 12px; /* Padding réduit */
-    border-radius: 8px;
-    box-shadow: 0 5px 15px var(--card-shadow);
-    margin-bottom: 35px;
-    box-sizing: border-box;
+    background-color: var(--card-background);
+    padding: 30px 15px; /* Padding réduit */
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    margin-bottom: 50px;
 }
 
 .featured-content h2 {
-    font-size: 1.4em; /* H2 plus petit */
-    margin-bottom: 20px;
-    color: var(--primary-color); /* H2 en bleu */
-    max-width: 95%;
+    font-size: 1.8em; /* Taille du h2 réduite */
+    margin-bottom: 30px;
+    color: var(--accent-color);
+    max-width: 100%;
     word-wrap: break-word;
-    text-align: center;
 }
 
 .featured-content h2::after {
-    width: 35px; /* Ligne plus courte */
-    height: 1.5px;
+    width: 50px; /* Ligne plus courte */
 }
 
 .content-carousel {
     display: flex;
-    overflow-x: auto; /* Permet le défilement horizontal */
-    scroll-snap-type: x mandatory; /* Force le snap aux éléments */
-    -webkit-overflow-scrolling: touch; /* Lissage du défilement sur iOS */
-    padding-bottom: 7px; /* Padding réduit */
-    margin-bottom: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .content-item {
-    flex: 0 0 180px; /* Taille de l'élément réduite (largeur fixe) */
-    margin-right: 10px; /* Marge réduite entre les éléments */
-    background-color: var(--background-dark); /* Fond en bleu foncé */
-    border-radius: 7px;
+    flex: 0 0 250px; /* Taille de l'élément réduite */
+    margin-right: 15px; /* Marge réduite */
+    background-color: var(--background-dark);
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 2px 7px var(--card-shadow);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     scroll-snap-align: start;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .content-item:hover {
-    transform: scale(1.01);
-    box-shadow: 0 4px 10px var(--card-hover-shadow);
+    transform: scale(1.01); /* Effet hover plus subtil */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
 }
 
 .content-item img {
     width: 100%;
-    height: 100px; /* Hauteur de l'image réduite */
-    object-fit: cover; /* Recouvre l'espace sans déformer */
+    height: 160px; /* Hauteur de l'image réduite */
+    object-fit: cover;
 }
 
 .content-item h3 {
-    padding: 8px 8px 3px; /* Padding réduit */
-    font-size: 0.95em; /* Titre plus petit */
-    color: var(--primary-color); /* Titre en bleu */
+    padding: 10px 10px 5px; /* Padding réduit */
+    font-size: 1.1em;
+    color: var(--primary-color);
 }
 
 .content-item p {
-    padding: 0 8px 8px; /* Padding réduit */
-    font-size: 0.75em; /* Texte plus petit */
-    color: var(--secondary-text); /* Texte en blanc cassé */
+    padding: 0 10px 10px; /* Padding réduit */
+    font-size: 0.85em;
+    color: var(--light-gray);
 }
 
 
-/* Support Section */
+/* Support Section (Correction spécifique pour les boutons) */
 .support-channels {
     display: flex;
     flex-wrap: wrap; /* Permet aux boutons de passer à la ligne */
-    justify-content: center; /* Centrage des boutons */
-    gap: 10px; /* Gap réduit entre les boutons */
-    margin-top: 18px; /* Marge réduite */
+    justify-content: center;
+    gap: 15px; /* Gap réduit entre les boutons */
+    margin-top: 25px;
 }
 
 .support-btn {
     display: flex;
     align-items: center;
-    padding: 8px 15px; /* Padding réduit */
-    border-radius: 30px; /* Plus arrondi */
-    font-size: 0.85em; /* Taille de police réduite */
-    font-weight: 500;
-    color: var(--text-light); /* Texte des boutons de support en blanc */
-    transition: background-color 0.2s ease, transform 0.1s ease;
-    box-shadow: 0 1px 5px var(--card-shadow);
+    padding: 10px 20px; /* Padding réduit */
+    border-radius: 50px;
+    font-size: 0.95em; /* Taille de police légèrement réduite */
+    font-weight: 600;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); /* Ombre plus douce */
     white-space: nowrap; /* Empêche le texte de se casser sur plusieurs lignes */
 }
 
 .support-btn i {
-    margin-right: 6px; /* Marge icône/texte réduite */
-    font-size: 1em;
+    margin-right: 8px; /* Marge icône/texte réduite */
+    font-size: 1.2em;
 }
 
-/* Couleurs spécifiques pour les boutons de support (exception à la règle bleu/blanc pour la reconnaissance de marque) */
-.support-btn.whatsapp { background-color: #25D366; } /* Vert WhatsApp */
-.support-btn.whatsapp:hover { background-color: #1DA851; transform: translateY(-1px); }
-.support-btn.instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); } /* Gradient Instagram */
-.support-btn.instagram:hover { transform: translateY(-1px); opacity: 0.9; }
-.support-btn.tiktok { background-color: #000000; border: 1px solid var(--text-light); } /* Fond noir, bordure blanche */
-.support-btn.tiktok:hover { background-color: #333333; transform: translateY(-1px); }
-.support-btn.facebook { background-color: #1877F2; } /* Bleu Facebook */
-.support-btn.facebook:hover { background-color: #145DBE; transform: translateY(-1px); }
+.support-btn.whatsapp { background-color: #25D366; }
+.support-btn.whatsapp:hover { background-color: #1DA851; transform: translateY(-2px); }
+.support-btn.instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+.support-btn.instagram:hover { transform: translateY(-2px); opacity: 0.9; }
+.support-btn.tiktok { background-color: #000000; border: 2px solid white; }
+.support-btn.tiktok:hover { background-color: #333333; transform: translateY(-2px); }
+.support-btn.facebook { background-color: #1877F2; }
+.support-btn.facebook:hover { background-color: #145DBE; transform: translateY(-2px); }
 
 
 /* About Section (Team Info) */
 .team-info {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Min-width réduit */
-    gap: 12px; /* Gap réduit */
-    margin-top: 18px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Min-width réduit */
+    gap: 20px; /* Gap réduit */
+    margin-top: 25px;
     justify-content: center;
 }
 
 .team-member {
-    background-color: var(--background-dark); /* Fond en bleu foncé */
-    padding: 15px; /* Padding réduit */
-    border-radius: 7px;
-    box-shadow: 0 2px 7px var(--card-shadow);
+    background-color: var(--background-dark);
+    padding: 20px; /* Padding réduit */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     text-align: left;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-sizing: border-box;
 }
 
 .team-member h3 {
-    font-size: 1.05em; /* Titre plus petit */
-    color: var(--primary-color); /* Titre en bleu */
-    margin-bottom: 7px;
-    border-bottom: 1px solid var(--border-color); /* Bordure en bleu */
-    padding-bottom: 5px;
+    font-size: 1.3em; /* Taille du titre réduite */
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--dark-gray);
+    padding-bottom: 8px;
 }
 
 .team-member p {
-    font-size: 0.8em; /* Texte plus petit */
-    color: var(--secondary-text); /* Texte en blanc cassé */
-    margin-bottom: 3px;
+    font-size: 0.9em; /* Taille de police réduite */
+    color: var(--light-gray);
+    margin-bottom: 5px;
 }
 
 .mission-statement {
-    font-size: 0.9em; /* Texte plus petit */
-    color: var(--secondary-text); /* Texte en blanc cassé */
-    margin-top: 22px; /* Marge réduite */
-    line-height: 1.5;
-    background-color: var(--background-dark); /* Fond en bleu foncé */
-    padding: 15px; /* Padding réduit */
-    border-radius: 7px;
-    box-shadow: 0 2px 7px var(--card-shadow);
+    font-size: 1em; /* Taille de police réduite */
+    color: var(--light-gray);
+    margin-top: 30px; /* Marge réduite */
+    line-height: 1.7;
+    background-color: var(--background-dark);
+    padding: 20px; /* Padding réduit */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     text-align: center;
-    max-width: 90%;
+    max-width: 90%; /* Limite la largeur du texte pour un meilleur centrage */
     margin-left: auto;
     margin-right: auto;
-    box-sizing: border-box;
 }
 
 
 /* Footer */
 .main-footer {
-    background-color: var(--card-background); /* Footer en bleu carte */
-    color: var(--secondary-text); /* Texte du footer en blanc cassé */
+    background-color: var(--card-background);
+    color: var(--light-gray);
     text-align: center;
-    padding: 18px 15px; /* Padding réduit */
-    margin-top: auto; /* Pousse le footer vers le bas */
-    border-top: 1px solid var(--border-color); /* Bordure en bleu */
-    box-sizing: border-box;
+    padding: 25px 20px; /* Padding réduit */
+    margin-top: auto;
+    border-top: 1px solid #2a2a2a;
 }
 
 .main-footer p {
-    margin: 0 0 5px 0;
-    font-size: 0.75em; /* Texte du footer plus petit */
+    margin: 0 0 8px 0;
+    font-size: 0.85em; /* Taille de police réduite */
 }
 
 .main-footer .footer-links a {
-    color: var(--accent-color); /* Liens du footer en bleu d'accentuation */
-    margin: 0 6px;
-    font-size: 0.75em; /* Liens du footer plus petits */
+    color: var(--accent-color);
+    margin: 0 8px;
+    font-size: 0.85em; /* Taille de police réduite */
 }
 
 
-/* Responsive design pour les écrans plus grands (tablettes et desktops) */
+/* Responsive design pour les écrans plus grands */
 @media (min-width: 768px) {
     .desktop-nav {
-        display: block; /* Affiche la navigation desktop */
+        display: block;
     }
 
     .hamburger, .mobile-menu {
-        display: none; /* Cache le menu mobile et le hamburger */
-    }
-
-    .dashboard-content {
-        padding: 30px 20px; /* Padding plus généreux sur desktop */
+        display: none;
     }
 
     .dashboard-content h1 {
-        font-size: 2.2em; /* Taille H1 desktop */
-        text-align: left; /* Aligne H1 à gauche */
-        margin-bottom: 35px;
-        padding: 15px;
-        max-width: 100%; /* Pas de limite de largeur */
+        font-size: 2.8em; /* Taille normale sur desktop */
+        text-align: left;
+        margin-bottom: 50px;
+        padding: 20px;
     }
 
     .service-section {
-        padding: 30px 20px; /* Padding normal sur desktop */
-        margin-bottom: 45px;
-        text-align: left; /* Aligne les titres et textes des sections à gauche */
+        padding: 40px 20px; /* Padding normal sur desktop */
+        margin-bottom: 60px;
+        text-align: left; /* Les titres des sections s'alignent à gauche */
     }
 
     .service-section h2 {
-        font-size: 1.8em; /* Taille H2 desktop */
-        margin-bottom: 25px;
+        font-size: 2.2em; /* Taille normale sur desktop */
+        margin-bottom: 40px;
         text-align: left;
     }
 
-    .service-section h2::after { /* Ligne sous H2 */
+    .service-section h2::after {
         left: 0;
         transform: translateX(0);
-        width: 40px; /* Ligne plus large sur desktop */
-        height: 2px;
     }
     
     .service-section p {
-        font-size: 1em; /* Taille de texte normale sur desktop */
+        font-size: 1.1em; /* Taille normale sur desktop */
         text-align: left;
-        max-width: 100%;
+        max-width: 100%; /* Plus de limite de largeur */
     }
 
     .content-item {
-        flex: 0 0 200px; /* Taille des éléments du carrousel sur tablette/petit desktop */
+        flex: 0 0 220px; /* Ajuste la largeur des éléments du carrousel sur tablette */
     }
     
     .service-grid {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* 3 ou 4 colonnes sur tablette */
-        gap: 15px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* 3 ou 4 colonnes sur tablette */
+        gap: 25px;
     }
 
     .service-card {
-        padding: 20px;
+        padding: 25px;
     }
 
     .service-card h3 {
-        font-size: 1.3em;
+        font-size: 1.5em;
     }
 
     .service-logo {
-        max-width: 60px;
+        max-width: 80px;
     }
 
     .service-card .price {
-        font-size: 1.4em;
+        font-size: 1.6em;
     }
 
     .btn-offer {
-        padding: 9px 18px;
-        font-size: 0.9em;
+        padding: 12px 25px;
+        font-size: 1em;
     }
 
     .support-channels {
-        gap: 12px;
+        gap: 20px;
         justify-content: flex-start; /* Aligne les boutons à gauche sur desktop */
     }
     .support-btn {
-        padding: 9px 18px;
-        font-size: 0.9em;
+        padding: 12px 25px;
+        font-size: 1.1em;
     }
     .support-btn i {
-        margin-right: 7px;
+        margin-right: 10px;
     }
 
     .team-info {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* 2 ou 3 colonnes pour l'équipe */
-        justify-content: flex-start;
-    }
-
-    .team-member {
-        padding: 20px;
-    }
-    .team-member h3 {
-        font-size: 1.2em;
-    }
-    .team-member p {
-        font-size: 0.85em;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 2 ou 3 colonnes pour l'équipe */
+        justify-content: flex-start; /* Aligne l'équipe à gauche */
     }
 
     .mission-statement {
-        font-size: 0.95em;
         max-width: 100%;
         text-align: left;
-        padding: 20px;
     }
 }
 
 @media (min-width: 1024px) {
     .content-item {
-        flex: 0 0 220px; /* Taille légèrement plus grande sur grand écran */
+        flex: 0 0 280px; /* Revenir à une plus grande taille sur grand écran */
     }
     
     .service-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 4 ou 5 colonnes sur desktop */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 4 ou 5 colonnes sur desktop */
     }
 }
 
 @media (min-width: 1200px) {
     .service-grid {
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Pour permettre 5-6 cartes sur une très grande largeur */
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Pour permettre 5-6 cartes sur une très grande largeur */
     }
-    }
+        }
+    
