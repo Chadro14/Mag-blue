@@ -3,68 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mag-blue - Connexion / Inscription</title>
+    <title>Mag-blue - Votre Divertissement Illimité</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 </head>
-<body class="auth-page">
-    <div class="auth-container">
-        <div class="auth-logo-container">
-            <img src="chemin/vers/votre/logo.png" alt="Mag-blue Logo" class="app-logo">
+<body class="homepage">
+    <header class="main-header">
+        <div class="logo-container">
+            <img src="assets/magblue-logo.png" alt="Mag-blue Logo" class="app-logo-header">
+            <span class="logo-text">Mag-blue</span>
         </div>
-        <h1 class="logo auth-title">Mag-blue</h1>
-        <h2>Connectez-vous ou inscrivez-vous</h2>
-
-        <div class="auth-buttons">
-            <button class="btn-auth google-auth" id="googleAuthBtn">
-                <i class="fab fa-google"></i> Continuer avec Google
-            </button>
-            <div class="separator">OU</div>
-            <button class="btn-auth email-auth" id="showEmailAuth">
-                <i class="fas fa-envelope"></i> Continuer avec E-mail
-            </button>
+        <nav class="desktop-nav">
+            <ul>
+                <li><a href="#programmes">Nos Programmes</a></li>
+                <li><a href="#commentaires">Avis Clients</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
         </div>
+    </header>
 
-        <div id="emailAuthSection" class="email-auth-section" style="display: none;">
-            <form id="loginForm" class="auth-form">
-                <h3>Connexion</h3>
-                <input type="email" id="loginEmail" placeholder="Votre E-mail" required>
-                <input type="password" id="loginPassword" placeholder="Mot de passe" required>
-                <button type="submit" class="btn-primary">Se connecter</button>
-                <p>Pas encore de compte ? <a href="#" id="toggleRegister">S'inscrire</a></p>
-            </form>
-
-            <form id="registerForm" class="auth-form" style="display: none;">
-                <h3>Inscription</h3>
-                <input type="email" id="registerEmail" placeholder="Votre E-mail" required>
-                <input type="password" id="registerPassword" placeholder="Mot de passe (min. 6 caractères)" required>
-                <button type="submit" class="btn-primary">S'inscrire</button>
-                <p>Déjà un compte ? <a href="#" id="toggleLogin">Se connecter</a></p>
-            </form>
-            <p id="authMessage" class="auth-message"></p>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="user-info">
+            <img src="assets/magblue-logo.png" alt="Mag-blue Logo" class="app-logo-mobile">
+            <p>Mag-blue</p>
         </div>
+        <ul>
+            <li class="mobile-menu-item"><a href="#programmes">Nos Programmes</a></li>
+            <li class="mobile-menu-item"><a href="#commentaires">Avis Clients</a></li>
+            <li class="mobile-menu-item"><a href="#contact">Contact</a></li>
+        </ul>
     </div>
 
-    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
-    
-    <script>
-        // Configuration Firebase pour le projet Mag-blue (API KEY MISE À JOUR)
-        const firebaseConfig = {
-            // !!! VÉRIFIEZ BIEN CETTE CLÉ, elle semble INCOMPLÈTE ou INCORRECTE !!!
-            apiKey: "VJhz6P2c38cV-Tk3aDtWk8tRpgMPY0MKLo3T3-pkyNg", 
-            authDomain: "mag-blue.firebaseapp.com",
-            projectId: "mag-blue",
-            storageBucket: "mag-blue.firebasestorage.app",
-            messagingSenderId: "88150920511",
-            appId: "1:88150920511:web:6c5a2cac11fa02f12f978a",
-            measurementId: "G-PHPECWR34V" 
-        };
+    <main class="content-wrapper">
+        <section class="hero-section">
+            <div class="hero-content">
+                <img src="assets/magblue-logo.png" alt="Mag-blue Logo" class="hero-logo">
+                <h1 class="hero-title">Votre portail unique pour le divertissement !</h1>
+                <p class="hero-description">
+                    Avec Mag-blue, accédez à une bibliothèque illimitée de films, séries, documentaires et contenus exclusifs. Netflix, Prime Video, Disney+, et bien plus, tout au même endroit et optimisé pour vous.
+                </p>
+                <button class="btn-start" onclick="location.href='#'">Commencer l'aventure</button>
+            </div>
+            <div class="image-carousel-container">
+                <div class="image-carousel" id="imageCarousel">
+                    <img src="assets/netflix-watching.jpg" alt="Personne regardant Netflix" class="carousel-img">
+                    <img src="assets/primevideo-watching.jpg" alt="Personne regardant Prime Video" class="carousel-img">
+                    <img src="assets/disneyplus-watching.jpg" alt="Personne regardant Disney+" class="carousel-img">
+                    <img src="assets/hulu-watching.jpg" alt="Personne regardant Hulu" class="carousel-img">
+                </div>
+            </div>
+        </section>
 
-        // Initialiser Firebase
-        firebase.initializeApp(firebaseConfig);
-    </script>
+        <section id="programmes" class="programmes-section">
+            <h2 class="section-title">Découvrez l'étendue de nos programmes</h2>
+            <div class="program-grid">
+                <div class="program-card">
+                    <i class="fas fa-film"></i>
+                    <h3>Films Illimités</h3>
+                    <p>Des blockbusters aux films d'auteur, notre sélection est constamment mise à jour pour tous les goûts.</p>
+                </div>
+                <div class="program-card">
+                    <i class="fas fa-tv"></i>
+                    <h3>Séries Captivantes</h3>
+                    <p>Ne manquez aucune saison de vos séries préférées, disponibles en HD et en plusieurs langues.</p>
+                </div>
+                <div class="program-card">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Documentaires Éducatifs</h3>
+                    <p>Élargissez vos connaissances avec des documentaires fascinants sur des sujets variés.</p>
+                </div>
+                <div class="program-card">
+                    <i class="fas fa-star"></i>
+                    <h3>Exclusivités Mag-blue</h3>
+                    <p>Profitez de contenus uniques que vous ne trouverez nulle part ailleurs, produits par Mag-blue.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="commentaires" class="commentaires-section">
+            <h2 class="section-title">Ce que nos clients disent de nous</h2>
+            <div class="comments-carousel" id="commentsCarousel">
+                </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2 class="section-title">Une question ? Contactez-nous !</h2>
+            <p>Notre équipe est là pour vous aider. N'hésitez pas à nous envoyer un message.</p>
+            <a href="mailto:contact@mag-blue.com" class="btn-contact">Envoyer un e-mail</a>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2023 Mag-blue. Tous droits réservés.</p>
+        <div class="footer-links">
+            <a href="#">Conditions d'utilisation</a>
+            <a href="#">Politique de confidentialité</a>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
