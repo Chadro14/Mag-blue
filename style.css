@@ -1,169 +1,235 @@
-/* Variables CSS */
+/*
+ * Fichier : style.css
+ * Description : Styles CSS pour la page d'authentification (index.html).
+ * Thème : Interface professionnelle avec des couleurs bleu et blanc, optimisée pour mobile.
+ */
+
+/* ==========================================================================
+   1. Variables CSS
+   ========================================================================== */
 :root {
-    --primary-color: #007bff; /* Bleu principal */
-    --accent-color: #00adb5; /* Bleu d'accentuation */
-    --background-color: #003366; /* Bleu foncé pour le fond */
-    --text-color: #ffffff; /* Texte blanc */
-    --card-background: #004488; /* Bleu légèrement plus clair pour les cartes */
-    --button-bg-hover: #0056b3; /* Bleu plus foncé pour le hover des boutons */
-    --input-bg: #002244; /* Bleu très foncé pour les champs de saisie */
-    --input-border: #0055aa; /* Bordure des champs */
-    --error-color: #ff4d4d; /* Rouge pour les messages d'erreur */
-    --secondary-text: #e0e0e0; /* Blanc cassé pour les textes secondaires */
+    /* Couleurs principales pour le thème bleu et blanc */
+    --primary-blue: #007bff; /* Bleu vibrant, souvent pour les actions primaires et titres */
+    --accent-blue: #00adb5;  /* Bleu turquoise d'accentuation, pour les liens, prix */
+    --background-dark-blue: #003366; /* Bleu très foncé pour l'arrière-plan général */
+    --card-background-blue: #004488; /* Bleu légèrement plus clair pour les conteneurs/cartes */
+    --input-background-blue: #002244; /* Bleu très foncé pour les champs de saisie */
+    --input-border-blue: #0055aa; /* Bleu pour les bordures de champs */
+    --text-white: #ffffff; /* Texte principal en blanc pur */
+    --text-light-gray: #e0e0e0; /* Blanc cassé/gris très clair pour textes secondaires/labels */
+    
+    /* Couleurs fonctionnelles */
+    --button-hover-blue: #0056b3; /* Bleu plus foncé au survol des boutons */
+    --error-red: #ff4d4d; /* Rouge vif pour les messages d'erreur */
 
-    --font-poppins: 'Poppins', sans-serif;
-    --font-roboto: 'Roboto', sans-serif;
+    /* Ombres */
+    --shadow-light: rgba(0, 0, 0, 0.2); /* Ombre légère */
+    --shadow-medium: rgba(0, 0, 0, 0.3); /* Ombre moyenne */
+    --shadow-strong: rgba(0, 0, 0, 0.5); /* Ombre forte pour les éléments principaux */
+
+    /* Polices */
+    --font-poppins: 'Poppins', sans-serif; /* Police pour les titres */
+    --font-roboto: 'Roboto', sans-serif;   /* Police pour le corps du texte */
+
+    /* Espacements de base */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 25px;
+    --spacing-xxl: 30px;
 }
 
-/* Styles globaux */
-body {
+/* ==========================================================================
+   2. Styles Globaux et Réinitialisation de Base
+   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box; /* Inclusion de padding et border dans la taille des éléments */
     margin: 0;
+    padding: 0;
+}
+
+body {
     font-family: var(--font-roboto);
-    background-color: var(--background-color); /* Arrière-plan bleu */
-    color: var(--text-color); /* Texte blanc */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-    box-sizing: border-box;
+    background-color: var(--background-dark-blue); /* Arrière-plan bleu foncé global */
+    color: var(--text-white); /* Couleur de texte par défaut en blanc */
+    display: flex; /* Utilisation de Flexbox pour centrer le contenu */
+    justify-content: center; /* Centrage horizontal */
+    align-items: center; /* Centrage vertical */
+    min-height: 100vh; /* Prend au moins toute la hauteur de la vue */
+    padding: var(--spacing-lg); /* Padding général pour éviter le collage aux bords */
+    line-height: 1.5; /* Hauteur de ligne standard pour la lisibilité */
+    text-rendering: optimizeLegibility; /* Amélioration du rendu du texte */
+    -webkit-font-smoothing: antialiased; /* Lissage des polices pour WebKit */
+    -moz-osx-font-smoothing: grayscale; /* Lissage des polices pour Firefox */
 }
 
-/* Conteneur principal */
+a {
+    color: var(--accent-blue); /* Liens en bleu d'accentuation */
+    text-decoration: none; /* Pas de soulignement par défaut */
+    transition: color 0.2s ease, text-decoration 0.2s ease; /* Transition douce */
+}
+
+a:hover {
+    text-decoration: underline; /* Soulignement au survol */
+    color: var(--primary-blue); /* Changement de couleur au survol */
+}
+
+/* ==========================================================================
+   3. Conteneur Principal du Formulaire
+   ========================================================================== */
 .container {
-    background-color: var(--card-background); /* Bleu plus clair pour le conteneur */
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    width: 100%;
-    max-width: 400px; /* Largeur maximale pour le formulaire */
-    text-align: center;
+    background-color: var(--card-background-blue); /* Fond du conteneur en bleu carte */
+    padding: var(--spacing-xxl); /* Padding interne généreux */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 20px var(--shadow-strong); /* Ombre prononcée pour la profondeur */
+    width: 100%; /* Prend toute la largeur disponible */
+    max-width: 400px; /* Largeur maximale pour une bonne ergonomie sur desktop */
+    text-align: center; /* Centrage du texte et des éléments inline-block */
 }
 
-/* Logo */
+/* ==========================================================================
+   4. Logo et Titres
+   ========================================================================== */
 .app-logo {
-    width: 80px;
-    height: auto;
-    margin-bottom: 20px;
+    width: 80px; /* Taille fixe pour le logo */
+    height: auto; /* Maintient le ratio d'aspect */
+    margin-bottom: var(--spacing-lg); /* Marge sous le logo */
 }
 
-/* Titres */
 h1 {
     font-family: var(--font-poppins);
-    color: var(--primary-color); /* H1 en bleu */
-    margin-bottom: 25px;
-    font-size: 2em;
+    color: var(--primary-blue); /* Titre principal en bleu */
+    margin-bottom: var(--spacing-xl); /* Marge sous le titre */
+    font-size: 2em; /* Taille de police importante pour le titre */
+    font-weight: 700; /* Gras */
+    line-height: 1.2; /* Hauteur de ligne compacte */
 }
 
-/* Groupes de formulaire */
+/* ==========================================================================
+   5. Éléments de Formulaire
+   ========================================================================== */
 .form-group {
-    margin-bottom: 20px;
-    text-align: left;
+    margin-bottom: var(--spacing-lg); /* Marge entre les groupes de formulaire */
+    text-align: left; /* Aligne les labels à gauche */
 }
 
 label {
-    display: block;
-    margin-bottom: 8px;
-    color: var(--secondary-text); /* Label en blanc cassé */
-    font-size: 0.9em;
+    display: block; /* Chaque label sur sa propre ligne */
+    margin-bottom: var(--spacing-sm); /* Marge sous le label */
+    color: var(--text-light-gray); /* Couleur du label en blanc cassé */
+    font-size: 0.9em; /* Taille de police du label légèrement plus petite */
+    font-weight: 500; /* Poids de police moyen */
 }
 
-/* Champs de saisie */
 input[type="text"],
 input[type="password"] {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid var(--input-border); /* Bordure en bleu */
-    border-radius: 8px;
-    background-color: var(--input-bg); /* Fond des inputs en bleu très foncé */
-    color: var(--text-color); /* Texte des inputs en blanc */
-    font-size: 1em;
-    box-sizing: border-box;
-    transition: border-color 0.3s ease;
+    width: 100%; /* Prend toute la largeur disponible */
+    padding: 12px var(--spacing-md); /* Padding intérieur */
+    border: 1px solid var(--input-border-blue); /* Bordure fine en bleu */
+    border-radius: 8px; /* Coins arrondis */
+    background-color: var(--input-background-blue); /* Fond du champ en bleu très foncé */
+    color: var(--text-white); /* Texte de saisie en blanc */
+    font-size: 1em; /* Taille de police standard */
+    box-sizing: border-box; /* Inclut padding et border dans la largeur */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transitions douces */
 }
 
 input[type="text"]::placeholder,
 input[type="password"]::placeholder {
-    color: #a0a0a0; /* Placeholder en gris clair */
+    color: #a0a0a0; /* Couleur du placeholder en gris clair */
+    opacity: 0.8; /* Légèrement transparent */
 }
 
 input[type="text"]:focus,
 input[type="password"]:focus {
-    border-color: var(--primary-color); /* Bordure bleue au focus */
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3); /* Ombre légère bleue */
+    border-color: var(--primary-blue); /* Bordure bleue au focus */
+    outline: none; /* Supprime l'outline par défaut du navigateur */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3); /* Ombre lumineuse bleue pour le focus */
 }
 
 /* Bouton de soumission */
 button[type="submit"] {
-    width: 100%;
-    padding: 12px;
-    background-color: var(--primary-color); /* Bouton en bleu */
-    color: var(--text-color); /* Texte du bouton en blanc */
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1em;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    width: 100%; /* Prend toute la largeur disponible */
+    padding: var(--spacing-md); /* Padding intérieur */
+    background-color: var(--primary-blue); /* Fond du bouton en bleu principal */
+    color: var(--text-white); /* Texte du bouton en blanc */
+    border: none; /* Pas de bordure */
+    border-radius: 8px; /* Coins arrondis */
+    font-size: 1.1em; /* Taille de police légèrement plus grande */
+    font-weight: 600; /* Gras */
+    cursor: pointer; /* Curseur pointeur au survol */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transitions douces */
+    box-shadow: 0 2px 5px var(--shadow-light); /* Ombre subtile */
 }
 
 button[type="submit"]:hover {
-    background-color: var(--button-bg-hover); /* Bleu plus foncé au hover */
+    background-color: var(--button-hover-blue); /* Bleu plus foncé au survol */
+    transform: translateY(-1px); /* Léger soulèvement du bouton */
 }
 
-/* Messages d'erreur */
+/* ==========================================================================
+   6. Messages et Liens Additionnels
+   ========================================================================= */
 #error-message {
-    color: var(--error-color); /* Texte d'erreur en rouge */
-    margin-top: 15px;
-    font-size: 0.9em;
+    color: var(--error-red); /* Texte d'erreur en rouge */
+    margin-top: var(--spacing-md); /* Marge au-dessus */
+    font-size: 0.9em; /* Taille de police réduite */
+    font-weight: 500; /* Poids de police moyen */
 }
 
-/* Liens */
 .links {
-    margin-top: 25px;
-    font-size: 0.9em;
+    margin-top: var(--spacing-xl); /* Marge au-dessus des liens */
+    font-size: 0.9em; /* Taille de police des liens */
 }
 
 .links a {
-    color: var(--accent-color); /* Liens en bleu d'accentuation */
-    margin: 0 10px;
-    text-decoration: none;
+    margin: 0 var(--spacing-sm); /* Marge entre les liens */
+    font-weight: 500; /* Poids de police moyen */
 }
 
-.links a:hover {
-    text-decoration: underline;
-}
-
-/* Responsive */
+/* ==========================================================================
+   7. Media Queries pour le Responsive Design (Mobile First)
+   ========================================================================== */
 @media (max-width: 480px) {
+    /* Ajustements spécifiques pour les très petits écrans (smartphones) */
+    body {
+        padding: var(--spacing-md); /* Padding réduit sur le corps */
+    }
+
     .container {
-        padding: 25px 20px;
-        border-radius: 8px;
+        padding: var(--spacing-xl) var(--spacing-lg); /* Padding intérieur réduit du conteneur */
+        border-radius: 8px; /* Rayon de bordure légèrement plus petit */
+        box-shadow: 0 2px 15px var(--shadow-medium); /* Ombre ajustée */
     }
 
     h1 {
-        font-size: 1.8em;
-        margin-bottom: 20px;
+        font-size: 1.6em; /* Taille de H1 plus petite sur mobile */
+        margin-bottom: var(--spacing-lg);
     }
 
     .app-logo {
-        width: 70px;
+        width: 65px; /* Logo plus petit sur mobile */
     }
 
     input[type="text"],
     input[type="password"],
     button[type="submit"] {
-        padding: 10px 12px;
-        font-size: 0.95em;
+        padding: var(--spacing-sm) var(--spacing-md); /* Padding des champs et boutons réduit */
+        font-size: 0.9em; /* Taille de police des champs et boutons réduite */
     }
 
     label {
-        font-size: 0.85em;
+        font-size: 0.8em; /* Taille de label plus petite */
+        margin-bottom: var(--spacing-xs); /* Marge réduite sous le label */
+    }
+
+    .form-group {
+        margin-bottom: var(--spacing-md); /* Marge réduite entre les groupes */
     }
 
     .links {
-        margin-top: 20px;
-        font-size: 0.85em;
+        margin-top: var(--spacing-lg);
+        font-size: 0.85em; /* Taille de police des liens réduite */
     }
 }
