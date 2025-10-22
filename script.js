@@ -1,7 +1,26 @@
+// Les modules sont autonomes, donc document.addEventListener est toujours le bon point de départ.
 document.addEventListener('DOMContentLoaded', () => {
+    // Récupérer les instances et fonctions Firebase exportées depuis index.html
+    // Ces objets sont exportés depuis le script de type "module" dans index.html
+    const app = window.firebaseApp;
+    const auth = window.firebaseAuth;
+    const GoogleAuthProvider = window.GoogleAuthProvider;
+    const signInWithPopup = window.signInWithPopup;
+    const createUserWithEmailAndPassword = window.createUserWithEmailAndPassword;
+    const signInWithEmailAndPassword = window.signInWithEmailAndPassword;
+    const signOut = window.signOut;
+    const onAuthStateChanged = window.onAuthStateChanged;
+
+    if (!app || !auth) {
+        console.error("Firebase n'est pas initialisé correctement. Vérifiez votre index.html.");
+        return; // Arrêter si Firebase n'est pas prêt
+    }
+
     // --- Logique pour la page d'authentification (index.html) ---
     const authPage = document.querySelector('.auth-page');
+
     if (authPage) {
+        // Références aux éléments du DOM
         const googleAuthBtn = document.getElementById('googleAuthBtn');
         const showEmailAuthBtn = document.getElementById('showEmailAuth');
         const emailAuthSection = document.getElementById('emailAuthSection');
@@ -11,30 +30,62 @@ document.addEventListener('DOMContentLoaded', () => {
         const toggleLoginLink = document.getElementById('toggleLogin');
         const authMessage = document.getElementById('authMessage');
 
-        let users = JSON.parse(localStorage.getItem('magblue_users')) || [];
-        let currentUser = null; // Utilisateur actuellement connecté (simulé)
+        const googleProvider = new GoogleAuthProvider();
 
-        // Simuler la connexion avec Google
-        googleAuthBtn.addEventListener('click', () => {
-            // Dans une vraie app, cela déclencherait un pop-up Google OAuth.
-            // Ici, on simule une connexion réussie et on redirige.
-            alert('Connexion avec Google simulée réussie !');
-            localStorage.setItem('magblue_currentUser', JSON.stringify({ email: 'user@google.com', name: 'Utilisateur Google' }));
-            window.location.href = 'dashboard.html';
+        // --- Vérifier l'état de l'authentification au chargement ---
+        // Cette fonction s'exécute à chaque changement d'état d'authentification (connexion, déconnexion)
+        // et redirige l'utilisateur s'il est déjà connecté.
+        onAuthStateChanged(auth, user => {
+            if (user) {
+                // Si l'utilisateur est déjà connecté, rediriger vers le tableau de bord
+                const userName = user.displayName || user.email.split('@')[0];
+                localStorage.setItem('magblue_currentUser', JSON.stringify({ email: user.email, name: userName, uid: user.uid }));
+                window.location.href = 'dashboard.html';
+            } else {
+                // Si l'utilisateur n'est pas connecté, s'assurer que les formulaires sont visibles.
+                // Au chargement, par défaut, la section e-mail est masquée.
+                emailAuthSection.style.display = 'none'; // Cacher par défaut
+                showEmailAuthBtn.style.display = 'block'; // Afficher le bouton pour e-mail
+                loginForm.style.display = 'block'; // Afficher le formulaire de connexion par défaut
+                registerForm.style.display = 'none';
+            }
         });
 
-        // Afficher/Masquer la section d'authentification par e-mail
+        // --- Connexion avec Google ---
+        googleAuthBtn.addEventListener('click', async () => {
+            authMessage.textContent = 'Connexion avec Google en cours...';
+            authMessage.style.color = 'var(--light-gray)';
+            try {
+                // Déclenche le pop-up de connexion Google
+                await signInWithPopup(auth, googleProvider);
+                // Si la connexion réussit, onAuthStateChanged s'occupera de la redirection.
+            } catch (error) {
+                console.error("Erreur lors de la connexion Google:", error);
+                // Gérer spécifiquement si l'utilisateur ferme le pop-up
+                if (error.code !== 'auth/popup-closed-by-user') {
+                    authMessage.textContent = `Erreur: ${error.message}`;
+                    authMessage.style.color = 'var(--error-red)';
+                } else {
+                    authMessage.textContent = 'Connexion annulée.';
+                    authMessage.style.color = 'var(--light-gray)';
+                }
+            }
+        });
+
+        // --- Afficher/Masquer la section d'authentification par e-mail ---
         showEmailAuthBtn.addEventListener('click', () => {
             emailAuthSection.style.display = 'block';
-            showEmailAuthBtn.style.display = 'none'; // Masquer le bouton "Continuer avec E-mail"
+            showEmailAuthBtn.style.display = 'none';
+            authMessage.textContent = ''; // Effacer les messages précédents
         });
 
-        // Basculer entre les formulaires de connexion et d'inscription
+        // --- Basculer entre les formulaires de connexion et d'inscription ---
         toggleRegisterLink.addEventListener('click', (e) => {
             e.preventDefault();
             loginForm.style.display = 'none';
             registerForm.style.display = 'block';
             authMessage.textContent = '';
+            authMessage.style.color = 'var(--error-red)'; // Remettre la couleur par défaut pour les futurs messages d'erreur
         });
 
         toggleLoginLink.addEventListener('click', (e) => {
@@ -42,118 +93,152 @@ document.addEventListener('DOMContentLoaded', () => {
             registerForm.style.display = 'none';
             loginForm.style.display = 'block';
             authMessage.textContent = '';
+            authMessage.style.color = 'var(--error-red)'; // Remettre la couleur par défaut
         });
 
-        // Simuler l'inscription par e-mail
-        registerForm.addEventListener('submit', (e) => {
+        // --- Inscription par e-mail et mot de passe ---
+        registerForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const email = document.getElementById('registerEmail').value;
             const password = document.getElementById('registerPassword').value;
 
-            if (password.length < 6) {
-                authMessage.textContent = 'Le mot de passe doit contenir au moins 6 caractères.';
-                return;
-            }
+            authMessage.textContent = 'Inscription en cours...';
+            authMessage.style.color = 'var(--light-gray)';
 
-            if (users.some(user => user.email === email)) {
-                authMessage.textContent = 'Cet e-mail est déjà enregistré.';
-                return;
+            try {
+                // Crée un nouvel utilisateur avec e-mail et mot de passe dans Firebase
+                await createUserWithEmailAndPassword(auth, email, password);
+                authMessage.textContent = 'Inscription réussie ! Connexion automatique...';
+                authMessage.style.color = 'var(--button-green)';
+                // Si l'inscription réussit, onAuthStateChanged s'occupera de la redirection.
+            } catch (error) {
+                console.error("Erreur lors de l'inscription:", error);
+                let errorMessage = "Erreur lors de l'inscription.";
+                if (error.code === 'auth/email-already-in-use') {
+                    errorMessage = 'Cet e-mail est déjà utilisé. Veuillez vous connecter.';
+                } else if (error.code === 'auth/weak-password') {
+                    errorMessage = 'Mot de passe trop faible (min. 6 caractères).';
+                } else if (error.code === 'auth/invalid-email') {
+                    errorMessage = 'Format d\'e-mail invalide.';
+                }
+                authMessage.textContent = `Erreur: ${errorMessage}`;
+                authMessage.style.color = 'var(--error-red)';
             }
-
-            users.push({ email, password });
-            localStorage.setItem('magblue_users', JSON.stringify(users));
-            authMessage.textContent = 'Inscription réussie ! Vous pouvez maintenant vous connecter.';
-            authMessage.style.color = 'var(--button-green)'; // Message de succès
-            // Rediriger vers la connexion
-            loginForm.style.display = 'block';
-            registerForm.style.display = 'none';
-            document.getElementById('loginEmail').value = email; // Pré-remplir l'e-mail
         });
 
-        // Simuler la connexion par e-mail
-        loginForm.addEventListener('submit', (e) => {
+        // --- Connexion par e-mail et mot de passe ---
+        loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const email = document.getElementById('loginEmail').value;
             const password = document.getElementById('loginPassword').value;
 
-            const user = users.find(u => u.email === email && u.password === password);
+            authMessage.textContent = 'Connexion en cours...';
+            authMessage.style.color = 'var(--light-gray)';
 
-            if (user) {
+            try {
+                // Tente de connecter l'utilisateur avec e-mail et mot de passe
+                await signInWithEmailAndPassword(auth, email, password);
                 authMessage.textContent = 'Connexion réussie ! Redirection...';
                 authMessage.style.color = 'var(--button-green)';
-                localStorage.setItem('magblue_currentUser', JSON.stringify({ email: user.email, name: user.email.split('@')[0] }));
-                window.location.href = 'dashboard.html';
-            } else {
-                authMessage.textContent = 'E-mail ou mot de passe incorrect.';
+                // Si la connexion réussit, onAuthStateChanged s'occupera de la redirection.
+            } catch (error) {
+                console.error("Erreur lors de la connexion:", error);
+                let errorMessage = "Erreur lors de la connexion.";
+                if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password' || error.code === 'auth/invalid-credential') {
+                    errorMessage = 'E-mail ou mot de passe incorrect.';
+                } else if (error.code === 'auth/invalid-email') {
+                    errorMessage = 'Format d\'e-mail invalide.';
+                }
+                authMessage.textContent = `Erreur: ${errorMessage}`;
                 authMessage.style.color = 'var(--error-red)';
             }
         });
     }
 
     // --- Logique pour le Tableau de Bord (dashboard.html) ---
+    // Cette partie gère le comportement de la page après la connexion.
     const dashboardPage = document.querySelector('body:not(.auth-page)');
     if (dashboardPage) {
+        // Récupérer l'instance d'authentification Firebase
+        const auth = window.firebaseAuth;
+
         const hamburger = document.getElementById('hamburger');
         const mobileMenu = document.getElementById('mobileMenu');
         const welcomeMessage = document.getElementById('welcomeMessage');
         const logoutBtn = document.getElementById('logoutBtn');
 
-        // Vérifier si l'utilisateur est "connecté"
-        const storedUser = localStorage.getItem('magblue_currentUser');
-        if (storedUser) {
-            const user = JSON.parse(storedUser);
-            welcomeMessage.textContent = `Salut ${user.name || user.email.split('@')[0]} !`;
-        } else {
-            // Si pas d'utilisateur, rediriger vers la page de connexion
-            window.location.href = 'index.html';
-            return; // Arrêter l'exécution du script pour cette page
-        }
+        // Vérifier l'état de l'authentification Firebase sur la page du tableau de bord
+        onAuthStateChanged(auth, user => {
+            if (user) {
+                // Utilisateur est connecté. Mettre à jour le message de bienvenue.
+                const userName = user.displayName || user.email.split('@')[0];
+                welcomeMessage.textContent = `Salut ${userName} !`;
+                // Stocker l'utilisateur dans localStorage pour des usages ultérieurs (nom, email, uid)
+                // Le localStorage est mis à jour ici pour être sûr qu'il reflète l'état actuel de l'utilisateur Firebase
+                localStorage.setItem('magblue_currentUser', JSON.stringify({ email: user.email, name: userName, uid: user.uid }));
 
-        // Toggle du menu mobile (Hamburger)
+            } else {
+                // Utilisateur non connecté, rediriger vers la page de connexion
+                localStorage.removeItem('magblue_currentUser'); // Nettoyer le localStorage
+                window.location.href = 'index.html';
+            }
+        });
+
+        // --- Gestion du menu Hamburger ---
+        // Ouvre/ferme le menu principal mobile
         hamburger.addEventListener('click', () => {
             mobileMenu.classList.toggle('active');
         });
 
-        // Toggle des sous-menus dans le menu mobile
+        // Ouvre/ferme les sous-menus à l'intérieur du menu mobile
         document.querySelectorAll('.mobile-menu-item .menu-toggle').forEach(toggleBtn => {
             toggleBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                const targetId = toggleBtn.dataset.target;
+                const targetId = toggleBtn.dataset.target; // ID du sous-menu cible (ex: streaming-submenu)
                 const submenu = document.getElementById(targetId);
 
-                // Fermer les autres sous-menus ouverts
+                // Fermer les autres sous-menus ouverts pour n'en avoir qu'un seul à la fois
                 document.querySelectorAll('.submenu.active').forEach(openSubmenu => {
-                    if (openSubmenu.id !== targetId) {
+                    if (openSubmenu.id !== targetId) { // Si ce n'est pas le sous-menu actuel
                         openSubmenu.classList.remove('active');
-                        openSubmenu.previousElementSibling.classList.remove('active'); // Enlève 'active' du toggle parent
+                        // Enlève la classe 'active' du bouton parent pour réinitialiser l'icône
+                        openSubmenu.previousElementSibling.classList.remove('active');
                     }
                 });
 
                 // Ouvrir ou fermer le sous-menu cliqué
                 submenu.classList.toggle('active');
-                toggleBtn.classList.toggle('active'); // Pour faire tourner l'icône
+                toggleBtn.classList.toggle('active'); // Pour faire tourner l'icône chevron
             });
         });
 
-        // Fermer le menu mobile (et sous-menus) si l'on clique en dehors
+        // Fermer le menu mobile (et tous les sous-menus) si l'on clique en dehors
         document.addEventListener('click', (event) => {
+            // Vérifie si le clic n'est pas sur le menu mobile ni sur le bouton hamburger,
+            // et si le menu mobile est actuellement ouvert.
             if (!mobileMenu.contains(event.target) && !hamburger.contains(event.target) && mobileMenu.classList.contains('active')) {
-                mobileMenu.classList.remove('active');
+                mobileMenu.classList.remove('active'); // Ferme le menu principal
+                // Ferme tous les sous-menus ouverts
                 document.querySelectorAll('.submenu.active').forEach(openSubmenu => {
                     openSubmenu.classList.remove('active');
-                    openSubmenu.previousElementSibling.classList.remove('active');
+                    openSubmenu.previousElementSibling.classList.remove('active'); // Réinitialise l'icône
                 });
             }
         });
 
-        // Déconnexion
-        logoutBtn.addEventListener('click', (e) => {
+        // --- Déconnexion Firebase ---
+        logoutBtn.addEventListener('click', async (e) => {
             e.preventDefault();
-            localStorage.removeItem('magblue_currentUser');
-            window.location.href = 'index.html';
+            try {
+                await signOut(auth); // Déconnecte l'utilisateur de Firebase
+                // onAuthStateChanged détectera la déconnexion et redirigera vers index.html
+            } catch (error) {
+                console.error("Erreur lors de la déconnexion:", error);
+                alert("Erreur lors de la déconnexion. Veuillez réessayer.");
+            }
         });
 
-        // Optionnel : Ajout d'un effet de scroll doux pour les ancres
+        // --- Optionnel : Ajout d'un effet de scroll doux pour les ancres ---
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -171,4 +256,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-                                            
+                                   
