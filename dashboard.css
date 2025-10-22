@@ -181,44 +181,6 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--background-dark);
 }
 
-.mobile-menu-item .menu-toggle {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.mobile-menu-item .menu-toggle i {
-    transition: transform 0.3s ease;
-}
-
-.mobile-menu-item .menu-toggle.active i {
-    transform: rotate(180deg);
-}
-
-.submenu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    background-color: #2a2a2a; /* Fond du sous-menu */
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-}
-
-.submenu.active {
-    max-height: 200px; /* Taille maximale du sous-menu déroulé */
-}
-
-.submenu li a {
-    padding: 10px 35px; /* Décaler les éléments du sous-menu */
-    font-size: 1em;
-    color: var(--light-gray);
-}
-
-.submenu li a:hover {
-    background-color: #3a3a3a;
-}
-
 /* ==========================================================================
    DASHBOARD CONTENT
    ========================================================================== */
@@ -237,6 +199,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .dashboard-content h2 {
+    font-family: var(--font-poppins);
     font-size: 1.8em;
     color: var(--text-light);
     margin-bottom: 25px;
@@ -246,48 +209,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 section {
-    margin-bottom: 50px;
+    margin-bottom: 60px; /* Plus d'espace entre les sections */
 }
 
-/* Quick Access Section */
-.quick-access .access-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 25px;
-}
-
-.access-card {
-    background-color: var(--card-background);
-    padding: 25px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.access-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-}
-
-.access-card i {
-    font-size: 3em;
-    color: var(--accent-color);
-    margin-bottom: 15px;
-}
-
-.access-card h3 {
-    font-size: 1.3em;
-    color: var(--text-light);
-    margin-bottom: 10px;
-}
-
-.access-card p {
-    font-size: 0.9em;
-    color: var(--light-gray);
-}
-
-/* Featured Content Section */
+/* Featured Content Section (reste similaire) */
 .featured-content .content-carousel {
     display: flex;
     overflow-x: auto; /* Permet le défilement horizontal */
@@ -331,106 +256,91 @@ section {
     color: var(--light-gray);
 }
 
+
 /* ==========================================================================
-   New Sections Styling
+   Service Sections (Streaming, Apps, Certified Accounts) - NOUVEAUX STYLES
    ========================================================================== */
-
-/* Pricing Section */
-.pricing-section .pricing-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Une colonne sur mobile */
-    gap: 30px;
-    margin-top: 30px;
+.service-section {
+    background-color: var(--card-background); /* Fond pour toute la section */
+    padding: 40px 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    margin-bottom: 60px; /* Plus d'espace entre les grandes sections */
 }
 
-.pricing-card {
-    background-color: var(--card-background);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-    text-align: left;
-}
-
-.pricing-card h3 {
-    font-size: 1.6em;
+.service-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.2em;
+    border-bottom: none; /* Le fond de section gère la séparation visuelle */
+    padding-bottom: 0;
     color: var(--accent-color);
-    margin-bottom: 20px;
-    text-align: center;
-    border-bottom: 1px solid var(--dark-gray);
-    padding-bottom: 10px;
 }
 
-.pricing-card ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.pricing-card li {
-    padding: 10px 0;
-    font-size: 1.05em;
-    color: var(--light-gray);
-    display: flex;
-    align-items: center;
-    border-bottom: 1px dotted #3a3a3a;
-}
-
-.pricing-card li:last-child {
-    border-bottom: none;
-}
-
-.pricing-card li i {
-    margin-right: 15px;
-    color: var(--primary-color);
-    font-size: 1.2em;
-    width: 25px; /* Pour aligner les icônes */
-    text-align: center;
-}
-
-/* Certification Section */
-.certification-section .certification-grid {
+.service-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Une colonne sur mobile */
-    gap: 25px;
-    margin-top: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* S'adapte mieux */
+    gap: 30px;
+    justify-content: center; /* Centre les cartes si pas assez pour remplir une ligne */
+    align-items: stretch; /* Les cartes ont la même hauteur */
 }
 
-.certification-card {
-    background-color: var(--card-background);
+.service-card {
+    background-color: var(--background-dark); /* Fond plus sombre pour les cartes individuelles */
     padding: 25px;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Utilise flexbox pour l'alignement interne */
+    flex-direction: column;
+    justify-content: space-between; /* Pousse le bouton en bas */
 }
 
-.certification-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
 }
 
-.certification-card i {
-    font-size: 2.8em;
+.service-card h3 {
+    font-size: 1.5em;
     color: var(--primary-color);
     margin-bottom: 15px;
+    font-family: var(--font-poppins);
 }
 
-.certification-card h3 {
-    font-size: 1.4em;
-    color: var(--text-light);
-    margin-bottom: 10px;
+.service-logo {
+    max-width: 80px; /* Taille des logos de service */
+    height: auto;
+    margin: 0 auto 20px;
+    border-radius: 8px; /* Doux arrondis pour les logos */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-.certification-card p {
-    font-size: 0.95em;
-    color: var(--light-gray);
-    margin-bottom: 15px;
-}
-
-.certification-card .price {
+.service-card .price {
+    font-size: 1.6em;
     font-weight: 700;
     color: var(--accent-color);
-    font-size: 1.1em;
+    margin-bottom: 25px;
+}
+
+.btn-offer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px; /* Bouton arrondi */
+    cursor: pointer;
+    font-size: 1em;
+    font-family: var(--font-poppins);
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: auto; /* Pousse le bouton vers le bas de la carte */
+}
+
+.btn-offer:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
 }
 
 /* Support Section */
@@ -476,24 +386,44 @@ section {
 .support-btn.facebook:hover { background-color: #145DBE; transform: translateY(-3px); }
 
 /* About Section (Developer/Admin Info) */
-.about-section .team-info {
+.about-section {
+    background-color: var(--card-background);
+    padding: 40px 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.about-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.2em;
+    border-bottom: none;
+    padding-bottom: 0;
+    color: var(--accent-color);
+}
+
+.team-info {
     display: grid;
-    grid-template-columns: 1fr; /* Une colonne sur mobile */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
     margin-top: 30px;
+    justify-content: center;
 }
 
 .team-member {
-    background-color: var(--card-background);
+    background-color: var(--background-dark);
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .team-member h3 {
     font-size: 1.4em;
-    color: var(--accent-color);
+    color: var(--primary-color);
     margin-bottom: 15px;
     border-bottom: 1px solid var(--dark-gray);
     padding-bottom: 10px;
@@ -510,34 +440,11 @@ section {
     color: var(--light-gray);
     margin-top: 40px;
     line-height: 1.8;
-    background-color: var(--card-background);
+    background-color: var(--background-dark); /* Changé pour une meilleure intégration */
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     text-align: center;
-}
-
-
-/* Recent Activity Section (Pas de changement) */
-.recent-activity ul {
-    list-style: none;
-    padding: 0;
-}
-
-.recent-activity li {
-    background-color: var(--card-background);
-    margin-bottom: 15px;
-    padding: 15px 20px;
-    border-radius: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-.recent-activity li .activity-time {
-    font-size: 0.8em;
-    color: var(--secondary-color);
 }
 
 
@@ -577,53 +484,29 @@ section {
         text-align: left;
     }
 
-    .quick-access .access-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur tablette */
+    /* Carrousel d'items en vedette */
+    .content-item {
+        flex: 0 0 200px; /* Ajuste la largeur des éléments du carrousel sur tablette */
     }
 
-    .pricing-section .pricing-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 colonnes pour les tarifs */
+    /* Grille de services (3 colonnes sur tablette, s'adapte) */
+    .service-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }
 
-    .certification-section .certification-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 colonnes pour les certifications */
-    }
-
-    .about-section .team-info {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 2 ou 3 colonnes pour l'équipe */
+    .team-info {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 2 ou 3 colonnes pour l'équipe */
     }
 }
 
 @media (min-width: 1024px) {
-    .quick-access .access-grid {
-        grid-template-columns: repeat(4, 1fr); /* 4 colonnes sur desktop */
-    }
-
     .content-item {
-        flex: 0 0 220px; /* Ajuste la largeur des éléments du carrousel */
+        flex: 0 0 250px; /* Retour à 250px sur les grands écrans */
     }
 
-    .pricing-section .pricing-grid {
-        grid-template-columns: repeat(2, 1fr); /* Toujours 2 colonnes */
+    /* Grille de services (4 colonnes sur desktop, s'adapte) */
+    .service-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
-
-    .certification-section .certification-grid {
-        grid-template-columns: repeat(4, 1fr); /* 4 colonnes pour les certifications */
     }
-}
-
-/* Icons pour les services de streaming dans la section tarifs (si Font Awesome supporte) */
-.fa-netflix::before { content: "\f0a5"; /* Netflix icon, si disponible */ }
-.fa-amazon::before { content: "\f270"; /* Amazon icon */ }
-.fa-disney::before { content: "\f0d1"; /* Disney (exemple d'icône non officielle, ou utilisez une image) */ }
-.fa-hulu::before { content: "\f0fe"; /* Hulu (exemple d'icône non officielle) */ }
-/* Pour les logos de streaming, il est souvent préférable d'utiliser de vrais SVG ou PNG */
-/* Pour cet exemple, j'utilise des icônes Font Awesome génériques ou des "placeholders" */
-
-/* Icons pour les apps premium */
-.fa-adobe::before { content: "\f778"; /* Adobe icon */ }
-.fa-video::before { content: "\f03d"; /* Generic video icon */ }
-.fa-music::before { content: "\f001"; /* Generic music icon */ }
-.fa-cloud::before { content: "\f0c2"; /* Generic cloud icon */ }
-.fa-tools::before { content: "\f7d9"; /* Generic tools icon */ }
     
