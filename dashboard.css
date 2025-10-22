@@ -2,14 +2,14 @@
 :root {
     --primary-color: #007bff; /* Bleu vibrant */
     --secondary-color: #6c757d; /* Gris secondaire */
-    --background-dark: #121212; /* Fond sombre principal */
-    --text-light: #eeeeee; /* Texte clair */
-    --card-background: #1e1e1e; /* Fond des cartes/sections */
+    --background-dark: #0a0a0a; /* Fond sombre encore plus foncé pour un contraste net */
+    --text-light: #e0e0e0; /* Texte clair, légèrement adouci */
+    --card-background: #1c1c1c; /* Fond des cartes/sections, légèrement plus clair que le background */
     --accent-color: #00adb5; /* Couleur d'accentuation */
     --button-green: #28a745; /* Vert pour les succès/actions positives */
     --error-red: #dc3545; /* Rouge pour les erreurs */
-    --light-gray: #cccccc; /* Gris clair */
-    --dark-gray: #333333; /* Gris foncé pour certains éléments */
+    --light-gray: #b0b0b0; /* Gris clair pour les descriptions */
+    --dark-gray: #303030; /* Gris foncé pour certains éléments de bordure */
 
     --font-poppins: 'Poppins', sans-serif;
     --font-roboto: 'Roboto', sans-serif;
@@ -21,7 +21,7 @@ body {
     font-family: var(--font-roboto);
     color: var(--text-light);
     background-color: var(--background-dark);
-    line-height: 1.6;
+    line-height: 1.5; /* Ligne-hauteur légèrement réduite pour plus de compacité */
     min-height: 100vh;
     box-sizing: border-box;
     display: flex;
@@ -41,7 +41,8 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-poppins);
     color: var(--text-light);
     margin-top: 0;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.4em; /* Marge réduite */
+    line-height: 1.2; /* Ligne-hauteur réduite pour les titres */
 }
 
 /* ==========================================================================
@@ -49,11 +50,11 @@ h1, h2, h3, h4, h5, h6 {
    ========================================================================== */
 .main-header {
     background-color: var(--card-background);
-    padding: 15px 25px;
+    padding: 12px 18px; /* Padding réduit */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4); /* Ombre plus subtile */
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -65,14 +66,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .app-logo-header {
-    max-width: 40px;
+    max-width: 35px; /* Logo plus petit */
     height: auto;
-    margin-right: 10px;
+    margin-right: 8px;
 }
 
 .logo-text {
     font-family: var(--font-poppins);
-    font-size: 1.8em;
+    font-size: 1.6em; /* Taille du texte du logo réduite */
     font-weight: 700;
     color: var(--primary-color);
 }
@@ -89,12 +90,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .desktop-nav ul li {
-    margin-left: 30px;
+    margin-left: 25px; /* Marge réduite */
 }
 
 .desktop-nav ul li a {
     color: var(--text-light);
-    font-weight: 600;
+    font-weight: 500; /* Poids de police légèrement plus fin */
+    font-size: 0.95em;
     transition: color 0.3s ease;
 }
 
@@ -105,7 +107,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hamburger {
     display: block;
-    font-size: 1.8em;
+    font-size: 1.6em; /* Taille du hamburger réduite */
     cursor: pointer;
     color: var(--text-light);
     z-index: 1001;
@@ -115,12 +117,12 @@ h1, h2, h3, h4, h5, h6 {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 250px;
+    width: 220px; /* Largeur du menu mobile réduite */
     height: 100%;
     background-color: var(--card-background);
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.4);
+    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.4); /* Ombre plus subtile */
     transition: right 0.3s ease-in-out;
-    padding-top: 70px;
+    padding-top: 60px; /* Espace ajusté */
     z-index: 999;
     overflow-y: auto;
 }
@@ -131,23 +133,23 @@ h1, h2, h3, h4, h5, h6 {
 
 .user-info {
     text-align: center;
-    padding: 20px 0;
-    border-bottom: 1px solid #444;
+    padding: 15px 0; /* Padding réduit */
+    border-bottom: 1px solid var(--dark-gray);
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .app-logo-mobile {
-    max-width: 60px;
+    max-width: 50px; /* Logo mobile réduit */
     height: auto;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .user-info p {
     margin: 0;
-    font-size: 1.1em;
-    font-weight: 600;
+    font-size: 1em; /* Taille de police réduite */
+    font-weight: 500;
     color: var(--primary-color);
 }
 
@@ -158,7 +160,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .mobile-menu-item {
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid var(--dark-gray);
 }
 
 .mobile-menu-item:last-child {
@@ -167,9 +169,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .mobile-menu-item a {
     display: block;
-    padding: 15px 25px;
+    padding: 12px 20px; /* Padding réduit */
     color: var(--text-light);
-    font-size: 1.1em;
+    font-size: 1em;
     text-decoration: none;
     transition: background-color 0.3s ease;
     text-align: left;
@@ -183,42 +185,46 @@ h1, h2, h3, h4, h5, h6 {
    DASHBOARD CONTENT (structure principale)
    ========================================================================== */
 .dashboard-content {
-    padding: 30px 20px;
-    max-width: 1200px;
+    padding: 25px 15px; /* Padding global réduit */
+    max-width: 1000px; /* Largeur maximale pour le contenu principal */
     margin: 0 auto;
     flex: 1;
 }
 
 .dashboard-content h1 {
-    font-size: 2.2em; /* Réduit la taille sur mobile */
+    font-size: 1.8em; /* H1 plus petit */
     color: var(--primary-color);
     text-align: center;
-    margin-bottom: 40px; /* Réduit la marge */
-    padding: 15px; /* Réduit le padding */
+    margin-bottom: 30px; /* Marge réduite */
+    padding: 12px; /* Padding réduit */
     background-color: var(--card-background);
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 10px; /* Bordures plus douces */
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+    max-width: 95%; /* S'assure de ne pas déborder */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Général pour toutes les sections de service (y compris Support et À Propos) */
 .service-section {
     background-color: var(--card-background);
-    padding: 30px 15px; /* Padding réduit sur mobile */
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-    margin-bottom: 50px; /* Marge réduite */
+    padding: 25px 15px; /* Padding réduit */
+    border-radius: 10px; /* Bordures plus douces */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    margin-bottom: 40px; /* Marge réduite */
     text-align: center;
 }
 
 .service-section h2 {
     font-family: var(--font-poppins);
-    font-size: 1.8em; /* Réduit la taille du h2 sur mobile */
+    font-size: 1.5em; /* H2 plus petit */
     color: var(--accent-color);
-    margin-bottom: 30px; /* Marge réduite */
+    margin-bottom: 25px; /* Marge réduite */
     position: relative;
     display: inline-block;
-    max-width: 100%; /* S'assure que le titre ne dépasse pas */
-    word-wrap: break-word; /* Permet la césure si le mot est trop long */
+    max-width: 95%; /* S'assure que le titre ne dépasse pas */
+    word-wrap: break-word;
+    text-align: center; /* Assure que le titre est bien centré sur sa propre ligne */
 }
 
 .service-section h2::after {
@@ -226,79 +232,80 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: -10px;
-    width: 50px; /* Ligne plus courte */
-    height: 3px;
+    bottom: -8px; /* Ligne plus proche du texte */
+    width: 40px; /* Ligne plus courte */
+    height: 2px; /* Ligne plus fine */
     background-color: var(--primary-color);
     border-radius: 5px;
 }
 
 .service-section p {
-    font-size: 1em; /* Taille de police légèrement réduite */
+    font-size: 0.95em; /* Texte de paragraphe plus petit */
     color: var(--light-gray);
-    margin-bottom: 25px;
+    margin-bottom: 20px; /* Marge réduite */
     max-width: 90%; /* Limite la largeur du paragraphe pour un meilleur centrage */
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.5; /* Ajustement de l'interligne */
 }
 
 /* Grille de cartes de service (Streaming, Apps, Certified Accounts) */
 .service-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Min-width légèrement réduit */
-    gap: 20px; /* Espacement réduit */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Min-width encore réduit */
+    gap: 15px; /* Espacement réduit */
     justify-content: center;
     align-items: stretch;
 }
 
 .service-card {
     background-color: var(--background-dark);
-    padding: 20px; /* Padding réduit */
-    border-radius: 10px;
+    padding: 18px; /* Padding réduit */
+    border-radius: 8px; /* Bordures plus petites */
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Ombre légèrement plus douce */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5); /* Ombre plus douce */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transitions plus rapides */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .service-card:hover {
-    transform: translateY(-5px); /* Effet hover plus subtil */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+    transform: translateY(-3px); /* Effet hover plus subtil */
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.7);
 }
 
 .service-card h3 {
-    font-size: 1.3em; /* Taille du titre de carte réduite */
+    font-size: 1.2em; /* Titre de carte plus petit */
     color: var(--primary-color);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .service-logo {
-    max-width: 70px; /* Taille des logos de service réduite */
+    max-width: 60px; /* Taille des logos de service réduite */
     height: auto;
-    margin: 0 auto 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    margin: 0 auto 12px;
+    border-radius: 6px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
 }
 
 .service-card .price {
-    font-size: 1.4em; /* Taille du prix réduite */
-    font-weight: 700;
+    font-size: 1.3em; /* Taille du prix réduite */
+    font-weight: 600; /* Poids de police plus fin */
     color: var(--accent-color);
-    margin-bottom: 20px;
+    margin-bottom: 18px; /* Marge réduite */
 }
 
 .btn-offer {
     background-color: var(--primary-color);
     color: white;
-    padding: 10px 20px; /* Padding du bouton réduit */
+    padding: 9px 18px; /* Padding du bouton réduit */
     border: none;
-    border-radius: 50px;
+    border-radius: 40px; /* Bouton plus arrondi */
     cursor: pointer;
-    font-size: 0.9em; /* Taille de police du bouton réduite */
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 0.85em; /* Taille de police du bouton réduite */
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease;
     margin-top: auto;
 }
 
@@ -310,22 +317,24 @@ h1, h2, h3, h4, h5, h6 {
 /* Section Contenus Phares (Featured Content) - Carrousel */
 .featured-content {
     background-color: var(--card-background);
-    padding: 30px 15px; /* Padding réduit */
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-    margin-bottom: 50px;
+    padding: 25px 15px; /* Padding réduit */
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    margin-bottom: 40px;
 }
 
 .featured-content h2 {
-    font-size: 1.8em; /* Taille du h2 réduite */
-    margin-bottom: 30px;
+    font-size: 1.5em; /* H2 plus petit */
+    margin-bottom: 25px;
     color: var(--accent-color);
-    max-width: 100%;
+    max-width: 95%;
     word-wrap: break-word;
+    text-align: center;
 }
 
 .featured-content h2::after {
-    width: 50px; /* Ligne plus courte */
+    width: 40px; /* Ligne plus courte */
+    height: 2px;
 }
 
 .content-carousel {
@@ -333,96 +342,96 @@ h1, h2, h3, h4, h5, h6 {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+    padding-bottom: 8px; /* Padding réduit */
+    margin-bottom: 15px;
 }
 
 .content-item {
-    flex: 0 0 250px; /* Taille de l'élément réduite */
-    margin-right: 15px; /* Marge réduite */
+    flex: 0 0 200px; /* Taille de l'élément réduite */
+    margin-right: 12px; /* Marge réduite */
     background-color: var(--background-dark);
-    border-radius: 10px;
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
     scroll-snap-align: start;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .content-item:hover {
-    transform: scale(1.01); /* Effet hover plus subtil */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    transform: scale(1.01);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.5);
 }
 
 .content-item img {
     width: 100%;
-    height: 160px; /* Hauteur de l'image réduite */
+    height: 120px; /* Hauteur de l'image réduite */
     object-fit: cover;
 }
 
 .content-item h3 {
-    padding: 10px 10px 5px; /* Padding réduit */
-    font-size: 1.1em;
+    padding: 10px 10px 4px; /* Padding réduit */
+    font-size: 1em; /* Titre plus petit */
     color: var(--primary-color);
 }
 
 .content-item p {
     padding: 0 10px 10px; /* Padding réduit */
-    font-size: 0.85em;
+    font-size: 0.8em; /* Texte plus petit */
     color: var(--light-gray);
 }
 
 
-/* Support Section (Correction spécifique pour les boutons) */
+/* Support Section */
 .support-channels {
     display: flex;
-    flex-wrap: wrap; /* Permet aux boutons de passer à la ligne */
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 15px; /* Gap réduit entre les boutons */
-    margin-top: 25px;
+    gap: 12px; /* Gap réduit entre les boutons */
+    margin-top: 20px; /* Marge réduite */
 }
 
 .support-btn {
     display: flex;
     align-items: center;
-    padding: 10px 20px; /* Padding réduit */
-    border-radius: 50px;
-    font-size: 0.95em; /* Taille de police légèrement réduite */
-    font-weight: 600;
+    padding: 9px 18px; /* Padding réduit */
+    border-radius: 40px; /* Plus arrondi */
+    font-size: 0.9em; /* Taille de police réduite */
+    font-weight: 500;
     color: white;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); /* Ombre plus douce */
-    white-space: nowrap; /* Empêche le texte de se casser sur plusieurs lignes */
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
 }
 
 .support-btn i {
-    margin-right: 8px; /* Marge icône/texte réduite */
-    font-size: 1.2em;
+    margin-right: 7px; /* Marge icône/texte réduite */
+    font-size: 1.1em;
 }
 
 .support-btn.whatsapp { background-color: #25D366; }
-.support-btn.whatsapp:hover { background-color: #1DA851; transform: translateY(-2px); }
+.support-btn.whatsapp:hover { background-color: #1DA851; transform: translateY(-1px); }
 .support-btn.instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
-.support-btn.instagram:hover { transform: translateY(-2px); opacity: 0.9; }
-.support-btn.tiktok { background-color: #000000; border: 2px solid white; }
-.support-btn.tiktok:hover { background-color: #333333; transform: translateY(-2px); }
+.support-btn.instagram:hover { transform: translateY(-1px); opacity: 0.9; }
+.support-btn.tiktok { background-color: #000000; border: 1px solid white; } /* Bordure plus fine */
+.support-btn.tiktok:hover { background-color: #333333; transform: translateY(-1px); }
 .support-btn.facebook { background-color: #1877F2; }
-.support-btn.facebook:hover { background-color: #145DBE; transform: translateY(-2px); }
+.support-btn.facebook:hover { background-color: #145DBE; transform: translateY(-1px); }
 
 
 /* About Section (Team Info) */
 .team-info {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Min-width réduit */
-    gap: 20px; /* Gap réduit */
-    margin-top: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Min-width réduit */
+    gap: 15px; /* Gap réduit */
+    margin-top: 20px;
     justify-content: center;
 }
 
 .team-member {
     background-color: var(--background-dark);
-    padding: 20px; /* Padding réduit */
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 18px; /* Padding réduit */
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -430,30 +439,30 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .team-member h3 {
-    font-size: 1.3em; /* Taille du titre réduite */
+    font-size: 1.15em; /* Titre plus petit */
     color: var(--primary-color);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     border-bottom: 1px solid var(--dark-gray);
-    padding-bottom: 8px;
+    padding-bottom: 6px;
 }
 
 .team-member p {
-    font-size: 0.9em; /* Taille de police réduite */
+    font-size: 0.85em; /* Texte plus petit */
     color: var(--light-gray);
-    margin-bottom: 5px;
+    margin-bottom: 4px;
 }
 
 .mission-statement {
-    font-size: 1em; /* Taille de police réduite */
+    font-size: 0.95em; /* Texte plus petit */
     color: var(--light-gray);
-    margin-top: 30px; /* Marge réduite */
-    line-height: 1.7;
+    margin-top: 25px; /* Marge réduite */
+    line-height: 1.6;
     background-color: var(--background-dark);
-    padding: 20px; /* Padding réduit */
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 18px; /* Padding réduit */
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
     text-align: center;
-    max-width: 90%; /* Limite la largeur du texte pour un meilleur centrage */
+    max-width: 90%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -464,20 +473,20 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--card-background);
     color: var(--light-gray);
     text-align: center;
-    padding: 25px 20px; /* Padding réduit */
+    padding: 20px 15px; /* Padding réduit */
     margin-top: auto;
     border-top: 1px solid #2a2a2a;
 }
 
 .main-footer p {
-    margin: 0 0 8px 0;
-    font-size: 0.85em; /* Taille de police réduite */
+    margin: 0 0 6px 0;
+    font-size: 0.8em; /* Texte du footer plus petit */
 }
 
 .main-footer .footer-links a {
     color: var(--accent-color);
-    margin: 0 8px;
-    font-size: 0.85em; /* Taille de police réduite */
+    margin: 0 7px;
+    font-size: 0.8em; /* Liens du footer plus petits */
 }
 
 
@@ -492,101 +501,115 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .dashboard-content h1 {
-        font-size: 2.8em; /* Taille normale sur desktop */
+        font-size: 2.5em; /* Taille H1 sur desktop */
         text-align: left;
-        margin-bottom: 50px;
-        padding: 20px;
+        margin-bottom: 40px;
+        padding: 18px;
     }
 
     .service-section {
-        padding: 40px 20px; /* Padding normal sur desktop */
-        margin-bottom: 60px;
-        text-align: left; /* Les titres des sections s'alignent à gauche */
+        padding: 35px 20px; /* Padding normal sur desktop */
+        margin-bottom: 50px;
+        text-align: left;
     }
 
     .service-section h2 {
-        font-size: 2.2em; /* Taille normale sur desktop */
-        margin-bottom: 40px;
+        font-size: 2em; /* Taille H2 sur desktop */
+        margin-bottom: 30px;
         text-align: left;
     }
 
     .service-section h2::after {
         left: 0;
         transform: translateX(0);
+        width: 50px; /* Ligne plus large sur desktop */
+        height: 3px;
     }
     
     .service-section p {
-        font-size: 1.1em; /* Taille normale sur desktop */
+        font-size: 1em; /* Taille de texte normale sur desktop */
         text-align: left;
-        max-width: 100%; /* Plus de limite de largeur */
+        max-width: 100%;
     }
 
     .content-item {
-        flex: 0 0 220px; /* Ajuste la largeur des éléments du carrousel sur tablette */
+        flex: 0 0 200px; /* Taille des éléments du carrousel sur tablette/petit desktop */
     }
     
     .service-grid {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* 3 ou 4 colonnes sur tablette */
-        gap: 25px;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 3 ou 4 colonnes sur tablette */
+        gap: 20px;
     }
 
     .service-card {
-        padding: 25px;
+        padding: 22px;
     }
 
     .service-card h3 {
-        font-size: 1.5em;
+        font-size: 1.4em;
     }
 
     .service-logo {
-        max-width: 80px;
+        max-width: 70px;
     }
 
     .service-card .price {
-        font-size: 1.6em;
+        font-size: 1.5em;
     }
 
     .btn-offer {
-        padding: 12px 25px;
-        font-size: 1em;
+        padding: 10px 22px;
+        font-size: 0.95em;
     }
 
     .support-channels {
-        gap: 20px;
-        justify-content: flex-start; /* Aligne les boutons à gauche sur desktop */
+        gap: 15px;
+        justify-content: flex-start;
     }
     .support-btn {
-        padding: 12px 25px;
-        font-size: 1.1em;
+        padding: 10px 22px;
+        font-size: 1em;
     }
     .support-btn i {
-        margin-right: 10px;
+        margin-right: 8px;
     }
 
     .team-info {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 2 ou 3 colonnes pour l'équipe */
-        justify-content: flex-start; /* Aligne l'équipe à gauche */
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 2 ou 3 colonnes pour l'équipe */
+        justify-content: flex-start;
+    }
+
+    .team-member {
+        padding: 22px;
+    }
+    .team-member h3 {
+        font-size: 1.3em;
+    }
+    .team-member p {
+        font-size: 0.9em;
     }
 
     .mission-statement {
+        font-size: 1em;
         max-width: 100%;
         text-align: left;
+        padding: 22px;
     }
 }
 
 @media (min-width: 1024px) {
     .content-item {
-        flex: 0 0 280px; /* Revenir à une plus grande taille sur grand écran */
+        flex: 0 0 250px; /* Taille légèrement plus grande sur grand écran */
     }
     
     .service-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 4 ou 5 colonnes sur desktop */
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* 4 ou 5 colonnes sur desktop */
     }
 }
 
 @media (min-width: 1200px) {
     .service-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Pour permettre 5-6 cartes sur une très grande largeur */
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Pour permettre 5-6 cartes sur une très grande largeur */
     }
     }
     
