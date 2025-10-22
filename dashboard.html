@@ -17,11 +17,11 @@
         <nav class="desktop-nav">
             <ul>
                 <li><a href="#">Accueil</a></li>
-                <li><a href="#">Streaming</a></li>
-                <li><a href="#">Apps Premium</a></li>
-                <li><a href="#">Comptes Certifiés</a></li>
-                <li><a href="#">Support</a></li>
-                <li><a href="#">À Propos</a></li>
+                <li><a href="#streaming-section">Streaming</a></li>
+                <li><a href="#apps-section">Apps Premium</a></li>
+                <li><a href="#certified-accounts-section">Comptes Certifiés</a></li>
+                <li><a href="#support-section">Support</a></li>
+                <li><a href="#about-section">À Propos</a></li>
                 <li><a href="#" id="logoutBtn">Déconnexion</a></li>
             </ul>
         </nav>
@@ -37,11 +37,11 @@
         </div>
         <ul>
             <li class="mobile-menu-item"><a href="#" class="menu-link">Accueil</a></li>
-            <li class="mobile-menu-item"><a href="#" class="menu-link">Streaming</a></li>
-            <li class="mobile-menu-item"><a href="#" class="menu-link">Apps Premium</a></li>
-            <li class="mobile-menu-item"><a href="#" class="menu-link">Comptes Certifiés</a></li>
-            <li class="mobile-menu-item"><a href="#" class="menu-link">Support</a></li>
-            <li class="mobile-menu-item"><a href="#" class="menu-link">À Propos</a></li>
+            <li class="mobile-menu-item"><a href="#streaming-section" class="menu-link">Streaming</a></li>
+            <li class="mobile-menu-item"><a href="#apps-section" class="menu-link">Apps Premium</a></li>
+            <li class="mobile-menu-item"><a href="#certified-accounts-section" class="menu-link">Comptes Certifiés</a></li>
+            <li class="mobile-menu-item"><a href="#support-section" class="menu-link">Support</a></li>
+            <li class="mobile-menu-item"><a href="#about-section" class="menu-link">À Propos</a></li>
             <li class="mobile-menu-item"><a href="#" class="menu-link">Profil</a></li>
             <li class="mobile-menu-item"><a href="#" id="logoutBtnMobile" class="menu-link">Déconnexion</a></li>
         </ul>
@@ -76,7 +76,7 @@
             </div>
         </section>
 
-        <section class="service-section streaming-section">
+        <section id="streaming-section" class="service-section">
             <h2>Prix des Canaux Streaming</h2>
             <div class="service-grid">
                 <div class="service-card">
@@ -115,10 +115,16 @@
                     <p class="price">7.99€ / mois</p>
                     <button class="btn-offer" data-service="Hulu">Voir l'offre</button>
                 </div>
+                <div class="service-card">
+                    <h3>Xalaflix</h3>
+                    <img src="assets/logo-xalaflix.png" alt="Xalaflix Logo" class="service-logo">
+                    <p class="price">Abonnement Illimité 45$</p>
+                    <button class="btn-offer" data-service="Xalaflix">Voir l'offre</button>
+                </div>
             </div>
         </section>
 
-        <section class="service-section apps-section">
+        <section id="apps-section" class="service-section">
             <h2>Applications Premium (Montage, etc.)</h2>
             <div class="service-grid">
                 <div class="service-card">
@@ -154,7 +160,7 @@
             </div>
         </section>
 
-        <section class="service-section certified-accounts-section">
+        <section id="certified-accounts-section" class="service-section">
             <h2>Comptes Certifiés & Boostage Abonnés</h2>
             <div class="service-grid">
                 <div class="service-card">
@@ -190,7 +196,7 @@
             </div>
         </section>
 
-        <section class="support-section">
+        <section id="support-section" class="service-section">
             <h2>Notre Support</h2>
             <p>Nous sommes là pour vous aider ! Contactez-nous via nos canaux de support.</p>
             <div class="support-channels">
@@ -202,7 +208,7 @@
             </div>
         </section>
 
-        <section class="about-section">
+        <section id="about-section" class="service-section">
             <h2>À Propos de Mag-blue</h2>
             <div class="team-info">
                 <div class="team-member">
@@ -240,5 +246,4 @@
 
     <script src="dashboard.js"></script>
 </body>
-                        </html>
-                        
+</html>
