@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mag-blue - Tableau de bord</title>
-    <link rel="stylesheet" href="dashboard.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body class="dashboard-page">
@@ -18,7 +19,9 @@
                 <li><a href="#">Accueil</a></li>
                 <li><a href="#">Catégories</a></li>
                 <li><a href="#">Mes listes</a></li>
-                <li><a href="#">Profil</a></li>
+                <li><a href="#">Tarifs & Services</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">À Propos</a></li>
                 <li><a href="#" id="logoutBtn">Déconnexion</a></li>
             </ul>
         </nav>
@@ -56,6 +59,9 @@
                     <li><a href="#">Historique</a></li>
                 </ul>
             </li>
+            <li class="mobile-menu-item"><a href="#" class="menu-link">Tarifs & Services</a></li>
+            <li class="mobile-menu-item"><a href="#" class="menu-link">Support</a></li>
+            <li class="mobile-menu-item"><a href="#" class="menu-link">À Propos</a></li>
             <li class="mobile-menu-item"><a href="#" class="menu-link">Profil</a></li>
             <li class="mobile-menu-item"><a href="#" id="logoutBtnMobile" class="menu-link">Déconnexion</a></li>
         </ul>
@@ -108,7 +114,103 @@
                     <h3>Nom du film/série 3</h3>
                     <p>Description courte...</p>
                 </div>
+                <div class="content-item">
+                    <img src="assets/featured-4.jpg" alt="Featured Content 4">
+                    <h3>Nom du film/série 4</h3>
+                    <p>Description courte...</p>
+                </div>
             </div>
+        </section>
+
+        <section class="pricing-section">
+            <h2>Tarifs & Services Mag-blue</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Canaux Streaming</h3>
+                    <ul>
+                        <li><i class="fab fa-netflix"></i> Netflix Premium: 15.99€/mois</li>
+                        <li><i class="fab fa-amazon"></i> Prime Video: 6.99€/mois</li>
+                        <li><i class="fab fa-disney"></i> Disney+: 8.99€/mois</li>
+                        <li><i class="fab fa-hulu"></i> Hulu: 7.99€/mois</li>
+                        <li><i class="fas fa-tv"></i> Autres Canaux: Sur demande</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Applications Premium (Montage, etc.)</h3>
+                    <ul>
+                        <li><i class="fab fa-adobe"></i> Suite Adobe Creative Cloud: 59.99€/mois</li>
+                        <li><i class="fas fa-video"></i> Final Cut Pro: 299.99€ (achat unique)</li>
+                        <li><i class="fas fa-music"></i> Spotify Premium: 9.99€/mois</li>
+                        <li><i class="fas fa-cloud"></i> Dropbox Pro: 11.99€/mois</li>
+                        <li><i class="fas fa-tools"></i> Autres Apps: Sur demande</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="certification-section">
+            <h2>Certification de Comptes Réseaux Sociaux</h2>
+            <div class="certification-grid">
+                <div class="certification-card">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>WhatsApp (Compte & Chaîne)</h3>
+                    <p>Faites certifier votre compte ou votre chaîne WhatsApp pour une crédibilité accrue. <span class="price">25€/mois</span></p>
+                </div>
+                <div class="certification-card">
+                    <i class="fab fa-tiktok"></i>
+                    <h3>TikTok</h3>
+                    <p>Obtenez la certification de votre profil TikTok pour plus de visibilité. <span class="price">30€/mois</span></p>
+                </div>
+                <div class="certification-card">
+                    <i class="fab fa-instagram"></i>
+                    <h3>Instagram</h3>
+                    <p>Badge de certification pour votre compte Instagram, augmentez votre authenticité. <span class="price">35€/mois</span></p>
+                </div>
+                <div class="certification-card">
+                    <i class="fab fa-facebook-f"></i>
+                    <h3>Facebook</h3>
+                    <p>Certification pour votre profil ou page Facebook. <span class="price">35€/mois</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="support-section">
+            <h2>Notre Support</h2>
+            <p>Nous sommes là pour vous aider ! Contactez-nous via nos canaux de support.</p>
+            <div class="support-channels">
+                <a href="https://wa.me/votre_numero" target="_blank" class="support-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://instagram.com/votre_profil" target="_blank" class="support-btn instagram"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://tiktok.com/@votre_profil" target="_blank" class="support-btn tiktok"><i class="fab fa-tiktok"></i> TikTok</a>
+                <a href="https://facebook.com/votre_page" target="_blank" class="support-btn facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <h2>À Propos de Mag-blue</h2>
+            <div class="team-info">
+                <div class="team-member">
+                    <h3>Développeur Principal</h3>
+                    <p><strong>Nom:</strong> [Votre Nom ou Nom de l'Équipe]</p>
+                    <p><strong>Rôle:</strong> Architecte Logiciel & Développeur Full-Stack</p>
+                    <p><strong>Contact:</strong> [Votre Email ou Lien LinkedIn]</p>
+                </div>
+                <div class="team-member">
+                    <h3>Administrateur Système</h3>
+                    <p><strong>Nom:</strong> [Nom de l'Admin]</p>
+                    <p><strong>Rôle:</strong> Gestion de l'Infrastructure & Sécurité</p>
+                    <p><strong>Contact:</strong> [Email de l'Admin ou Autre Contact]</p>
+                </div>
+                <div class="team-member">
+                    <h3>Service Client</h3>
+                    <p><strong>Nom:</strong> Équipe Mag-blue Support</p>
+                    <p><strong>Rôle:</strong> Assistance Utilisateur & Résolution de Problèmes</p>
+                    <p><strong>Contact:</strong> support@mag-blue.com</p>
+                </div>
+            </div>
+            <p class="mission-statement">
+                Mag-blue a été créé avec la mission de centraliser et d'optimiser votre expérience de divertissement et de travail digital. Nous nous engageons à offrir des services de qualité, fiables et innovants.
+            </p>
         </section>
 
         <section class="recent-activity">
@@ -129,5 +231,7 @@
         </div>
     </footer>
 
-    <script src="dashboard.js"></script> </body>
+    <script src="dashboard.js"></script>
+</body>
 </html>
+
