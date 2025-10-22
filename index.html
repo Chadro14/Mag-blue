@@ -43,38 +43,6 @@
         </div>
     </div>
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
-        // Importation des modules d'authentification
-        import { getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
-        
-        // Votre configuration Firebase (celle de congo-ia, utilisée ici temporairement)
-        const firebaseConfig = {
-            apiKey: "AIzaSyALMEMpf7VF8_eL2KnwWkWpAjepY7wKf6Q",
-            authDomain: "congo-ia.firebaseapp.com",
-            projectId: "congo-ia",
-            storageBucket: "congo-ia.firebasestorage.app",
-            messagingSenderId: "721296628993",
-            appId: "1:721296628993:web:e283f6f06306b8ab690f00",
-            measurementId: "G-2NFRN9HPLW" // Measurement ID pour Analytics (non utilisé ici, mais présent dans votre config)
-        };
-
-        // Initialiser Firebase
-        const app = initializeApp(firebaseConfig);
-        
-        // Exporter les instances Firebase pour script.js
-        // Cela permet à script.js d'accéder à ces objets sans les réinitialiser
-        window.firebaseApp = app;
-        window.firebaseAuth = getAuth(app);
-        window.GoogleAuthProvider = GoogleAuthProvider;
-        window.signInWithPopup = signInWithPopup;
-        window.createUserWithEmailAndPassword = createUserWithEmailAndPassword;
-        window.signInWithEmailAndPassword = signInWithEmailAndPassword;
-        window.signOut = signOut;
-        window.onAuthStateChanged = onAuthStateChanged;
-
-        // Note: getAnalytics(app) est omis car non utilisé directement par ce script.
-        // Si vous voulez l'utiliser, ajoutez-le ici et exportez-le aussi.
-    </script>
-    <script type="module" src="script.js"></script> </body>
+    <script type="module" src="script.js"></script>
+</body>
 </html>
