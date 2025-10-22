@@ -43,6 +43,23 @@
         </div>
     </div>
 
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
+    <script>
+        // Votre objet de configuration Firebase pour le projet Mag-blue
+        // REMPLACEZ CECI PAR VOTRE firebaseConfig RÉCUPÉRÉ DE LA CONSOLE FIREBASE
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT_ID.appspot.com",
+            messagingSenderId: "YOUR_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        // Initialiser Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
