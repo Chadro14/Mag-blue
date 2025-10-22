@@ -488,4 +488,4 @@ section:nth-of-type(odd) { /* Pour alterner les couleurs de fond */
         0% { transform: translateX(0); }
         100% { transform: translateX(calc(-100% * var(--num-comments) / 3)); } /* Ajustez le 3 */
     }
-    }
+}
