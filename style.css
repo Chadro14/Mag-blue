@@ -1,93 +1,96 @@
-/* Variables de couleurs */
+/* Variables CSS pour faciliter la gestion des couleurs et espacements */
 :root {
-    --primary-blue: #007bff;     /* Bleu principal pour les accents et boutons */
-    --dark-blue: #0A1128;        /* Bleu très foncé pour le fond principal et header */
-    --medium-blue: #001F54;      /* Bleu légèrement moins foncé pour les sections */
-    --light-gray: #e0e0e0;       /* Gris clair pour le texte secondaire */
-    --white: #ffffff;            /* Blanc pour le texte principal et fonds */
-    --card-bg: #1C2B4E;          /* Fond des cartes (un bleu plus clair que le fond) */
-    --hover-blue: #0056b3;       /* Bleu pour les effets hover */
-    --button-green: #28a745;     /* Vert pour les boutons secondaires */
-    --hover-green: #218838;
-    --separator-color: #6c757d;  /* Couleur pour le séparateur OU */
-    --error-red: #dc3545;        /* Rouge pour les messages d'erreur */
+    --primary-color: #007bff; /* Bleu vibrant */
+    --secondary-color: #6c757d; /* Gris secondaire */
+    --background-dark: #222831; /* Fond sombre */
+    --text-light: #eeeeee; /* Texte clair */
+    --card-background: #393e46; /* Fond des cartes/sections */
+    --accent-color: #00adb5; /* Couleur d'accentuation */
+    --button-green: #28a745; /* Vert pour les succès/actions positives */
+    --error-red: #dc3545; /* Rouge pour les erreurs */
+    --light-gray: #cccccc; /* Gris clair */
+
+    --font-poppins: 'Poppins', sans-serif;
+    --font-roboto: 'Roboto', sans-serif;
 }
 
-/* --- Reset CSS & Styles de base --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Styles globaux et de base */
 body {
-    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    font-family: var(--font-roboto);
+    color: var(--text-light);
+    background-color: var(--background-dark);
     line-height: 1.6;
-    color: var(--light-gray); /* Couleur de texte par défaut */
-    background-color: var(--dark-blue); /* Fond principal */
-}
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 0;
-}
-
-h1, h2, h3, h4 {
-    font-family: 'Poppins', sans-serif;
-    color: var(--white);
-    margin-bottom: 15px;
-}
-
-p {
-    margin-bottom: 10px;
-    color: var(--light-gray);
+    display: flex; /* Pour centrer le contenu de la page d'authentification */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Prend toute la hauteur de l'écran */
+    padding: 20px;
+    box-sizing: border-box; /* Inclut le padding dans la largeur/hauteur */
 }
 
 a {
-    color: var(--primary-blue);
+    color: var(--accent-color);
     text-decoration: none;
-    transition: color 0.3s ease;
 }
 
 a:hover {
-    color: var(--hover-blue);
+    text-decoration: underline;
 }
 
-/* --- Pages d'Authentification (index.html) --- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-poppins);
+    color: var(--text-light);
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+/* ==========================================================================
+   Styles pour la page d'authentification (index.html)
+   ========================================================================== */
 .auth-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(135deg, var(--dark-blue) 0%, var(--medium-blue) 100%);
+    background: linear-gradient(135deg, var(--background-dark) 0%, #1a1e24 100%);
 }
 
 .auth-container {
-    background-color: var(--card-bg); /* Utiliser le fond de carte pour le formulaire */
+    background-color: var(--card-background);
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     text-align: center;
-    width: 90%;
-    max-width: 450px;
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Espacement entre les éléments */
 }
 
-.auth-logo {
-    font-size: 2.5em;
-    color: var(--primary-blue);
-    margin-bottom: 20px;
+.auth-logo-container {
+    margin-bottom: 10px;
+}
+
+.app-logo {
+    max-width: 120px; /* Ajustez la taille de votre logo */
+    height: auto;
+    display: block;
+}
+
+.auth-title {
+    font-size: 2.2em; /* Taille du titre "Mag-blue" */
+    color: var(--primary-color);
+    margin-bottom: 10px;
 }
 
 .auth-container h2 {
-    font-size: 1.8em;
-    margin-bottom: 30px;
-    color: var(--white);
+    font-size: 1.2em;
+    color: var(--light-gray);
+    margin-bottom: 25px;
 }
 
 .auth-buttons {
-    margin-bottom: 20px;
+    width: 100%;
+    margin-bottom: 25px;
 }
 
 .btn-auth {
@@ -99,503 +102,396 @@ a:hover {
     margin-bottom: 15px;
     border: none;
     border-radius: 5px;
-    font-size: 1.1em;
-    font-weight: 600;
+    font-size: 1em;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-family: var(--font-poppins);
+}
+
+.btn-auth i {
+    margin-right: 10px;
+    font-size: 1.2em;
 }
 
 .google-auth {
-    background-color: var(--white);
-    color: var(--text-color);
+    background-color: #dd4b39; /* Couleur de Google */
+    color: white;
 }
+
 .google-auth:hover {
-    background-color: #f0f0f0;
-}
-.google-auth i {
-    margin-right: 10px;
-    font-size: 1.2em;
-    color: #DB4437; /* Couleur de l'icône Google */
+    background-color: #c23321;
 }
 
 .email-auth {
-    background-color: var(--primary-blue);
-    color: var(--white);
+    background-color: var(--accent-color);
+    color: white;
 }
+
 .email-auth:hover {
-    background-color: var(--hover-blue);
-}
-.email-auth i {
-    margin-right: 10px;
+    background-color: #008c90;
 }
 
 .separator {
-    color: var(--separator-color);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--light-gray);
     margin: 20px 0;
-    position: relative;
+    font-size: 0.9em;
 }
-.separator::before, .separator::after {
+
+.separator::before,
+.separator::after {
     content: '';
-    position: absolute;
-    top: 50%;
-    width: 40%;
-    height: 1px;
-    background-color: var(--separator-color);
+    flex: 1;
+    border-bottom: 1px solid var(--secondary-color);
+    margin: 0 10px;
 }
-.separator::before { left: 0; }
-.separator::after { right: 0; }
 
 .email-auth-section {
-    margin-top: 30px;
+    width: 100%;
 }
 
 .auth-form {
-    background-color: var(--dark-blue); /* Fond du formulaire e-mail */
+    background-color: #323741; /* Couleur légèrement différente pour le formulaire */
     padding: 25px;
     border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    margin-top: 20px;
 }
 
 .auth-form h3 {
+    color: var(--accent-color);
     font-size: 1.5em;
-    margin-bottom: 25px;
-    color: var(--primary-blue);
+    margin-bottom: 20px;
 }
 
-.auth-form input {
-    width: 100%;
-    padding: 12px;
+.auth-form input[type="email"],
+.auth-form input[type="password"] {
+    width: calc(100% - 20px); /* Ajuste la largeur pour le padding */
+    padding: 12px 10px;
     margin-bottom: 15px;
-    border: 1px solid #495057;
+    border: 1px solid var(--secondary-color);
     border-radius: 5px;
-    background-color: #343a40;
-    color: var(--white);
+    background-color: var(--background-dark);
+    color: var(--text-light);
     font-size: 1em;
-    outline: none;
 }
 
-.auth-form input::placeholder {
-    color: #adb5bd;
-}
-
-.auth-form .btn-primary {
-    width: 100%;
-    margin-top: 10px;
-    padding: 12px 20px;
-    font-size: 1.1em;
-}
-
-.auth-form p {
-    margin-top: 20px;
-    font-size: 0.9em;
-}
-.auth-form p a {
-    color: var(--primary-blue);
-    font-weight: 600;
-}
-.auth-form p a:hover {
-    color: var(--hover-blue);
-}
-
-.auth-message {
-    color: var(--error-red);
-    margin-top: 20px;
-    font-weight: 600;
-}
-
-
-/* --- Header (dashboard.html) --- */
-header {
-    background-color: var(--dark-blue);
-    color: var(--white);
-    padding: 15px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-}
-
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 1.8em;
-    font-weight: 700;
-    color: var(--primary-blue);
-}
-
-/* Navigation Desktop */
-.main-nav .nav-links {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-.main-nav .nav-links li {
-    margin-left: 25px;
-}
-
-.main-nav .nav-links a {
-    color: var(--white);
-    font-weight: 600;
-    font-size: 1.1em;
-}
-
-.main-nav .nav-links a:hover {
-    color: var(--primary-blue);
-}
-
-/* Hamburger pour mobile */
-.hamburger {
-    display: none; /* Caché par défaut sur desktop */
-    font-size: 1.8em;
-    cursor: pointer;
-    color: var(--white);
-    padding: 5px;
-}
-
-/* Menu Mobile / Hamburger */
-.mobile-menu {
-    display: none; /* Caché par défaut */
-    flex-direction: column;
-    background-color: var(--dark-blue);
-    position: absolute;
-    top: 60px; /* Ajuster si la hauteur du header change */
-    left: 0;
-    width: 100%;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-    padding: 10px 0;
-    z-index: 999;
-}
-
-.mobile-menu.active {
-    display: flex;
-}
-
-.mobile-menu-item {
-    width: 100%;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-.mobile-menu-item:last-of-type {
-    border-bottom: none;
-}
-
-.mobile-menu-item .menu-toggle {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--white);
-    padding: 12px 20px;
-    font-weight: 600;
-    font-size: 1.1em;
-    background-color: transparent;
-    border: none;
-    width: 100%;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.mobile-menu-item .menu-toggle:hover {
-    background-color: var(--primary-blue);
-}
-
-.mobile-menu-item .menu-toggle .fas {
-    transition: transform 0.3s ease;
-}
-.mobile-menu-item .menu-toggle.active .fas {
-    transform: rotate(180deg);
-}
-
-.submenu {
-    display: none; /* Caché par défaut */
-    flex-direction: column;
-    background-color: var(--medium-blue);
-    padding: 0 20px 10px;
-}
-.submenu.active {
-    display: flex;
-}
-
-.submenu a {
+.auth-form input[type="email"]::placeholder,
+.auth-form input[type="password"]::placeholder {
     color: var(--light-gray);
-    padding: 8px 15px;
-    font-size: 1em;
-    border-radius: 5px;
-    margin-bottom: 5px;
-    transition: background-color 0.3s ease;
-}
-.submenu a:hover {
-    background-color: var(--primary-blue);
-    color: var(--white);
-}
-
-.submenu .coming-soon {
-    color: var(--light-gray);
-    padding: 8px 15px;
-    font-style: italic;
-    font-size: 0.9em;
-}
-
-.logout-btn {
-    display: block;
-    color: var(--error-red);
-    padding: 15px 20px;
-    text-align: center;
-    font-weight: 600;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    transition: background-color 0.3s ease;
-}
-.logout-btn:hover {
-    background-color: rgba(220, 53, 69, 0.2);
-    color: var(--error-red);
-}
-.logout-btn i {
-    margin-right: 8px;
-}
-
-
-/* --- Hero Dashboard Section (dashboard.html) --- */
-.hero-dashboard-section {
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%); /* Dégradé de bleu */
-    text-align: center;
-    padding: 80px 20px;
-    min-height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    color: var(--white);
-    border-bottom: 5px solid var(--primary-blue); /* Petite touche */
-}
-
-.hero-dashboard-section h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.hero-dashboard-section p {
-    font-size: 1.1em;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    color: var(--light-gray);
-}
-
-
-/* --- Category Sections --- */
-.category-section {
-    padding: 60px 0;
-    text-align: center;
-}
-
-.secondary-bg {
-    background-color: var(--medium-blue); /* Fond secondaire pour alterner */
-}
-
-.category-section h3 {
-    font-size: 2.2em;
-    margin-bottom: 40px;
-    position: relative;
-    color: var(--primary-blue); /* Titre de section en bleu */
-}
-
-.category-section h3::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background-color: var(--white);
-    margin: 10px auto 0;
-    border-radius: 2px;
-}
-
-.description-text {
-    font-size: 1.1em;
-    margin-bottom: 30px;
-    color: var(--light-gray);
-}
-
-.products-grid, .social-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px; /* Intervalle entre les cartes */
-    justify-content: center;
-}
-
-.product-card, .social-card {
-    background-color: var(--card-bg); /* Fond des cartes */
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: var(--light-gray);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.product-card:hover, .social-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-}
-
-.product-card img {
-    max-width: 90px;
-    height: auto;
-    margin: 0 auto 20px;
-    border-radius: 8px;
-    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3)); /* Petite ombre pour les logos */
-}
-
-.product-card h4, .social-card h4 {
-    font-size: 1.5em;
-    color: var(--white);
-    margin-bottom: 10px;
-}
-
-.product-card p, .social-card p {
-    font-size: 0.9em;
-    color: var(--light-gray);
-    flex-grow: 1;
-    margin-bottom: 20px;
-}
-
-.product-card .price {
-    display: block;
-    font-size: 1.3em;
-    font-weight: 700;
-    color: var(--primary-blue); /* Prix en bleu */
-    margin-bottom: 20px;
-}
-
-/* Boutons */
-.btn-primary, .btn-secondary {
-    display: inline-block;
-    padding: 12px 25px;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    text-transform: uppercase;
-    font-size: 1em;
-    border: none;
+    opacity: 0.7;
 }
 
 .btn-primary {
-    background-color: var(--primary-blue);
-    color: var(--white);
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: var(--font-poppins);
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
 }
 
 .btn-primary:hover {
-    background-color: var(--hover-blue);
-    transform: translateY(-2px);
+    background-color: #0056b3;
 }
 
-.btn-secondary {
-    background-color: var(--button-green); /* Vert pour les CTA sur les cartes */
-    color: var(--white);
-}
-
-.btn-secondary:hover {
-    background-color: var(--hover-green);
-    transform: translateY(-2px);
-}
-.btn-secondary.disabled {
-    background-color: #6c757d;
-    cursor: not-allowed;
-}
-
-/* Coming Soon Card */
-.coming-soon-card {
-    border: 2px dashed var(--primary-blue);
-    background-color: var(--medium-blue);
-    color: var(--white);
-}
-.coming-soon-card i {
-    font-size: 3em;
-    color: var(--primary-blue);
-    margin-bottom: 20px;
-}
-.coming-soon-card .price {
+.auth-form p {
+    font-size: 0.9em;
+    margin-top: 20px;
     color: var(--light-gray);
+}
+
+.auth-form p a {
+    font-weight: 600;
+}
+
+.auth-message {
+    margin-top: 20px;
+    font-size: 0.95em;
+    color: var(--error-red); /* Par défaut pour les erreurs, sera changé par JS */
+    min-height: 20px; /* Pour éviter les sauts de mise en page */
+}
+
+/* ==========================================================================
+   Styles pour le Tableau de Bord (dashboard.html)
+   ========================================================================== */
+body:not(.auth-page) {
+    display: block; /* Réinitialise le display flex pour le dashboard */
+    padding: 0; /* Réinitialise le padding pour le dashboard */
+}
+
+/* Header */
+.main-header {
+    background-color: var(--card-background);
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-header .logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.main-header .desktop-nav {
+    display: none; /* Masqué par défaut, affiché sur grand écran */
+}
+
+.main-header .desktop-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.main-header .desktop-nav ul li {
+    margin-left: 30px;
+}
+
+.main-header .desktop-nav ul li a {
+    color: var(--text-light);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.main-header .desktop-nav ul li a:hover {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.main-header .desktop-nav .dropdown-toggle {
+    position: relative;
+}
+
+.main-header .desktop-nav .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--card-background);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+    z-index: 1;
+    border-radius: 5px;
+    padding: 10px 0;
+    margin-top: 10px; /* Espace sous le bouton */
+}
+
+.main-header .desktop-nav .dropdown-content a {
+    color: var(--text-light);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    transition: background-color 0.3s ease;
+}
+
+.main-header .desktop-nav .dropdown-content a:hover {
+    background-color: var(--background-dark);
+}
+
+.main-header .desktop-nav .dropdown-toggle:hover .dropdown-content {
+    display: block;
+}
+
+
+/* Mobile Menu (Hamburger) */
+.hamburger {
+    display: block; /* Visible par défaut sur mobile */
+    font-size: 1.8em;
+    cursor: pointer;
+    color: var(--text-light);
+    z-index: 1001; /* S'assure que le hamburger est au-dessus du menu */
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Cache le menu hors de l'écran */
+    width: 250px;
+    height: 100%;
+    background-color: var(--card-background);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.4);
+    transition: right 0.3s ease-in-out;
+    padding-top: 70px; /* Espace pour le header */
+    z-index: 999;
+    overflow-y: auto; /* Permet le défilement si le contenu est trop long */
+}
+
+.mobile-menu.active {
+    right: 0; /* Affiche le menu */
+}
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-menu-item {
+    border-bottom: 1px solid #444;
+}
+
+.mobile-menu-item:last-child {
+    border-bottom: none;
+}
+
+.mobile-menu-item a:not(.menu-toggle),
+.mobile-menu-item .menu-toggle {
+    display: block;
+    padding: 15px 25px;
+    color: var(--text-light);
     font-size: 1.1em;
-    font-weight: 400;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    text-align: left;
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-poppins);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
+.mobile-menu-item a:not(.menu-toggle):hover,
+.mobile-menu-item .menu-toggle:hover {
+    background-color: var(--background-dark);
+}
 
-/* Social Cards */
-.social-card {
+.mobile-menu-item .menu-toggle i.fas {
+    transition: transform 0.3s ease;
+}
+
+.mobile-menu-item .menu-toggle.active i.fas {
+    transform: rotate(90deg); /* Rotation pour l'icône de sous-menu */
+}
+
+.submenu {
+    list-style: none;
+    padding: 0;
+    background-color: #323741; /* Couleur de fond pour le sous-menu */
+    display: none; /* Masqué par défaut */
+    max-height: 0; /* Pour l'animation de slide */
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.submenu.active {
+    display: block; /* Affiché quand actif */
+    max-height: 500px; /* Valeur suffisante pour contenir tous les éléments */
+}
+
+.submenu li a {
+    padding: 12px 35px; /* Indentation pour les éléments du sous-menu */
+    font-size: 1em;
+    color: var(--light-gray);
+}
+
+.submenu li a:hover {
+    background-color: #2a2e34;
+}
+
+.user-info {
     text-align: center;
-    color: var(--white);
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    padding: 20px 0;
+    border-bottom: 1px solid #444;
 }
-.social-card i {
-    font-size: 3em;
+
+.user-info p {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.logout-btn {
+    background-color: var(--error-red);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #a71d2a;
+}
+
+/* Content */
+.dashboard-content {
+    padding: 30px 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-content h1 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+.widget-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Une colonne sur mobile */
+    gap: 20px;
+}
+
+.widget {
+    background-color: var(--background-dark);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.widget h3 {
+    color: var(--accent-color);
     margin-bottom: 15px;
 }
-.social-card.whatsapp { background-color: #25d366; }
-.social-card.instagram { background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); }
-.social-card.tiktok { background-color: #010101; } /* Noir car l'icône TikTok est bicolore */
-.social-card.facebook { background-color: #3b5998; }
 
-/* --- Footer --- */
-footer {
-    background-color: var(--dark-blue);
+.widget p {
     color: var(--light-gray);
-    text-align: center;
-    padding: 30px 0;
-    font-size: 0.9em;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.95em;
 }
 
-footer p {
-    margin: 5px 0;
-    color: var(--light-gray);
+/* Responsive design */
+@media (min-width: 768px) {
+    .main-header .desktop-nav {
+        display: block; /* Affiche la nav desktop */
+    }
+
+    .hamburger, .mobile-menu {
+        display: none; /* Cache le menu mobile */
+    }
+
+    .dashboard-content {
+        padding: 40px;
+    }
+
+    .widget-grid {
+        grid-template-columns: repeat(2, 1fr); /* Deux colonnes sur tablette */
+    }
 }
 
-footer a {
-    color: var(--primary-blue);
-}
-
-footer a:hover {
-    color: var(--hover-blue);
-}
-
-/* --- Responsive Design --- */
-@media (max-width: 768px) {
-    .main-nav .nav-links.desktop-only {
-        display: none; /* Cache la navigation principale sur mobile */
+@media (min-width: 1024px) {
+    .widget-grid {
+        grid-template-columns: repeat(3, 1fr); /* Trois colonnes sur desktop */
     }
-
-    .hamburger {
-        display: block; /* Affiche l'icône hamburger */
-    }
-
-    .hero-dashboard-section h2 {
-        font-size: 2em;
-    }
-
-    .hero-dashboard-section p {
-        font-size: 1em;
-    }
-
-    .products-grid, .social-grid {
-        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
-    }
-
-    .auth-container {
-        padding: 25px;
-    }
-    .auth-container h2 {
-        font-size: 1.5em;
-    }
-    .auth-form h3 {
-        font-size: 1.2em;
-    }
-      }
+                }
